@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" />
+    <title>Authentication Page</title>
+  </head>
+  <body>
+    <section id="bg-gray">
+      <section id="addcustomerheader">
+        <div>
+          <a href="customer.html">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <h5>Geri dönüş</h5>
+        </div>
+      </section>
+      <section id="fullfeedback">
+        <div class="customer-info-box">
+          <div class="box">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div style="background-color: #1473c7" class="personico">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <div>
+                  <span>Həsən</span>
+                  <p>Müştəri #213269</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form action="">
+          <div>
+            <label for="note">Qeydlər</label>
+            <div id="char-count">0 / 150</div>
+            <br />
+            <textarea name="note" rows="6" id="note"></textarea>
+          </div>
+          <div>
+            <label for="date">Növbəti geri dönüş</label>
+            <br />
+            <input type="date" id="date" />
+          </div>
+          <div class="d-flex justify-content-center">
+            <button>Təsdiq et</button>
+          </div>
+        </form>
+      </section>
+
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <div class="tab active">
+              <i class="fa-solid fa-list-ol"></i>
+            </div>
+            <div class="tab">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <div class="tab">
+              <i class="fa-solid fa-book"></i>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
