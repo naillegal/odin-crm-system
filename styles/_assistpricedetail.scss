@@ -1,0 +1,153 @@
+.quote-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.assistpricedetail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .logo img {
+    width: 120px;
+  }
+
+  .header-title {
+    text-align: right;
+
+    h1 {
+      font-size: 24px;
+      color: #000;
+      font-weight: bold;
+    }
+  }
+}
+
+.client-info {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3f6fb;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Ensure elements wrap properly */
+
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .pricing-info h2,
+  .date-info h2,
+  .serial-info h2 {
+    font-weight: bold;
+  }
+
+  /* For screens under 768px */
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two items per row */
+    column-gap: 15px; /* Gap between the two columns */
+    row-gap: 12px; /* Gap between the two rows */
+
+    .client-info > div {
+      width: 100%; /* Ensure each div takes full width in its grid cell */
+      box-sizing: border-box; /* Include padding and margin in width */
+    }
+  }
+
+  /* For screens under 480px (even smaller displays) */
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr 1fr; /* Stack the items vertically */
+    text-align: center;
+
+    .client-info > div {
+      margin-bottom: 15px;
+    }
+
+    .client-info > div h2,
+    .client-info > div p {
+      text-align: center;
+    }
+  }
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  th {
+    background-color: #0c397d;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+  td:nth-child(2) {
+    font-size: 10px; /* Apply 6px font size to the second td */
+  }
+}
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3f6fb;
+  padding: 20px;
+  border-radius: 8px;
+
+  .delivery {
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+  }
+
+  .grand-total {
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      color: #fff;
+      background-color: #0c397d;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+    }
+  }
+}

@@ -124,7 +124,7 @@
     bottom: 0;
     z-index: 99;
     .tabs-box {
-      padding: 18px 0px;
+      padding: 12px 0px;
       background-color: #353b49;
       box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
       .change-tabs {
@@ -144,6 +144,7 @@
         }
         .tab {
           cursor: pointer;
+          padding: 7px;
         }
       }
     }

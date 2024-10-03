@@ -1,0 +1,213 @@
+.bg-contract {
+  background-color: #313540;
+
+  .contract-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #000;
+    background-color: #fff;
+    border-radius: 20px;
+
+    .contract-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+
+      .company-logo img,
+      .partner-logos img {
+        width: 80px;
+        margin-bottom: 10px;
+      }
+
+      .company-info {
+        text-align: center;
+        flex-grow: 1;
+        padding: 0 20px;
+
+        h1 {
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+
+        p,
+        .website {
+          margin: 3px 0;
+        }
+
+        .website {
+          color: #1684dd;
+          text-decoration: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .company-logo,
+        .partner-logos {
+          display: flex;
+          justify-content: center;
+          flex: 1;
+        }
+
+        .contract-header {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .company-logo,
+        .partner-logos {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px;
+        }
+
+        .company-info {
+          order: 1; // Ensures the company info goes below the logos in responsive view
+          text-align: center;
+          padding: 0 10px;
+          margin-bottom: 20px;
+        }
+
+        .company-logo img,
+        .partner-logos img {
+          margin: 5px;
+        }
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #d6191c;
+      font-weight: 700;
+    }
+
+    form {
+      .contract-info {
+        margin-bottom: 20px;
+
+        .info-row {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          label {
+            font-weight: bold;
+            width: 30%;
+            padding-right: 10px;
+          }
+
+          .input-area {
+            width: 65%;
+            border: none;
+            border-bottom: 1px solid #000;
+            padding: 4px 0px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+          }
+
+          .input-area:focus {
+            border-bottom: 2px solid #1684dd;
+          }
+        }
+      }
+    }
+
+    .payment-plan {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      span {
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+
+        input[type="radio"] {
+          margin-right: 5px;
+        }
+
+        .installment-amount {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .material-info {
+      margin-bottom: 20px;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          margin-bottom: 10px;
+
+          span {
+            margin-left: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+      h6 {
+        margin: 25px 0px;
+        font-size: 14px;
+      }
+    }
+
+    .signatures {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .buyer-signature,
+      .seller-signature {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+
+        .input-area {
+          width: 50%;
+          border: none;
+          border-bottom: 1px solid #000;
+          padding: 4px 0px;
+          outline: none;
+          font-family: inherit;
+          font-size: 14px;
+          margin-bottom: 20px;
+          margin-left: 15px;
+        }
+
+        .input-area:focus {
+          border-bottom: 2px solid #1684dd;
+        }
+
+        .d-flex {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          img {
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 80px;
+            object-fit: cover;
+          }
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

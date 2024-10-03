@@ -1,36 +1,41 @@
-// change tabs 
-document.addEventListener("DOMContentLoaded", function () {
-  const feedTab = document.querySelector(".tab1");
-  const infoTab = document.querySelector(".tab2");
-  const feedButton = document.querySelector(".feed");
-  const infoButton = document.querySelector(".info");
-
-  feedTab.style.display = "block";
-  infoTab.style.display = "none";
-  feedButton.classList.add("active");
-
-  feedButton.addEventListener("click", function () {
-    feedTab.style.display = "block"; 
-    infoTab.style.display = "none"; 
-    feedButton.classList.add("active"); 
-    infoButton.classList.remove("active"); 
+$(document).ready(function () {
+  $('.clicktodown').on('click', function () {
+      $(this).next('#dropdown-feedback').slideToggle(300); 
+      $('.clicktodown').not(this).each(function () {
+          $(this).next('#dropdown-feedback').slideUp(300); 
+      });
   });
 
-  infoButton.addEventListener("click", function () {
-    feedTab.style.display = "none"; 
-    infoTab.style.display = "block"; 
-    infoButton.classList.add("active"); 
-    feedButton.classList.remove("active"); 
-  });
+  $('.clicktodowncrud').on('click', function () {
+    $(this).next('#dropdown-crud').slideToggle(300); 
+    $('.clicktodowncrud').not(this).each(function () {
+        $(this).next('#dropdown-crud').slideUp(300); 
+    });
 });
 
+  $('.box').each(function () {
+      const box = $(this); 
+      const feedButton = box.find('.feed');
+      const infoButton = box.find('.info');
+      const feedTab = box.find('.tab1');
+      const infoTab = box.find('.tab2');
 
-// charCount for textarea 
-const textarea = document.getElementById('note');
-const charCount = document.getElementById('char-count');
-const maxChars = 150;
+      feedTab.show();
+      infoTab.hide();
+      feedButton.addClass('active');
 
-textarea.addEventListener('input', () => {
-  const currentLength = textarea.value.length;
-  charCount.textContent = `${currentLength} / ${maxChars}`;
+      feedButton.on('click', function () {
+          feedTab.show();
+          infoTab.hide();
+          feedButton.addClass('active');
+          infoButton.removeClass('active');
+      });
+
+      infoButton.on('click', function () {
+          feedTab.hide();
+          infoTab.show();
+          infoButton.addClass('active');
+          feedButton.removeClass('active');
+      });
+  });
 });

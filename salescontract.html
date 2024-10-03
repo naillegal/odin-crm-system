@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" />
+    <title>Authentication Page</title>
+  </head>
+  <body>
+    <div class="bg-contract">
+      <div class="contract-container">
+        <div class="contract-header">
+          <div class="company-logo">
+            <img src="assets/odin-logo.png" alt="Odin Logo" />
+          </div>
+          <div class="company-info">
+            <h1>ODIN PROJECT ENGINEERING MMC</h1>
+            <p>+994 998 38 83</p>
+            <a href="#" class="website">www.odinproject.az</a>
+          </div>
+          <div class="partner-logos">
+            <img src="assets/rehau.jpg" alt="Rehau Logo" />
+            <br />
+            <img src="assets/eliz-logo.png" alt="Eliz Logo" />
+          </div>
+        </div>
+
+        <h2>SATIŞ SÖZLƏŞMƏSİ</h2>
+        <form action="">
+          <div class="contract-info">
+            <div class="info-row">
+              <label for="customer-name">Müştəri Adı:</label>
+              <input type="text" id="customer-name" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="address">Adres:</label>
+              <input type="text" id="address" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="phone">Telefon:</label>
+              <input type="text" id="phone" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="glass-thickness">Şüşə qalınlığı:</label>
+              <input type="text" id="glass-thickness" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="profile-color">Profil rəngi:</label>
+              <input type="text" id="profile-color" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="total-area">Toplam m²:</label>
+              <input type="text" id="total-area" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="sales-price">Satış Qiyməti:</label>
+              <input type="text" id="sales-price" class="input-area" />
+            </div>
+            <div class="info-row">
+              <label for="sales-price">Ödəmə Planı</label>
+              <input type="text" id="sales-price" class="input-area" />
+            </div>
+          </div>
+        </form>
+        <div class="payment-plan">
+          <span>
+            <input type="radio" id="cash" name="payment-plan" />
+            <label for="cash">Nəğd</label>
+          </span>
+          <span>
+            <input type="radio" id="installment" name="payment-plan" />
+            <label for="installment">Taksit:</label>
+            <span class="installment-amount">120+90</span>
+          </span>
+        </div>
+
+        <div class="material-info">
+          <h6>
+            Yuxarıda qeyd olunan ünvanda aparılacaq qatlanan şüşə eyvan, PVC
+            təchizat və montaj işlərini aşağıdakı şərtlərlə yerinə yetirməyi
+            qarşılıqlı razılaşdırır və öz öhdəmizə götürürük.
+          </h6>
+          <h3>MATERİAL XÜSUSİYYƏTLƏRİ:</h3>
+          <ul>
+            <li>
+              * Şüşə məhsulu 8 mm tək qat şüşə <span>( )</span> və ya paket şüşə
+              <span>(✓)</span>
+            </li>
+            <li>* Paslanmayan alüminium profil və Rəngli <span>(✓)</span></li>
+          </ul>
+          <h6>
+            Xüsusiyyətləri və ödəniş şərtləri yuxarıda göstərilən müqavilə 2
+            (iki) nüsxədə tərtib edilmiş və tərəflər tərəfindən oxunmuş və
+            imzalanmışdır.
+          </h6>
+          <h6>Tarix: 03.10.2024</h6>
+        </div>
+        <div class="signatures">
+          <div class="buyer-signature">
+            <div class="d-flex">
+              <p>Alıcı (imza):</p>
+              <img
+                style="visibility: hidden"
+                src="assets/signature.png"
+                alt="signature"
+              />
+            </div>
+            <div class="d-flex">
+              <p>Ad<br/>Soyad:</p>
+              <input type="text" id="buyer-name" class="input-area" />
+            </div>
+          </div>
+          <div class="seller-signature">
+            <div class="d-flex">
+              <p>Satıcı (imza):</p>
+              <img src="assets/signature.png" alt="signature" />
+            </div>
+            <div class="d-flex">
+              <p>Ad<br/>Soyad:</p>
+              <input type="text" id="seller-name" class="input-area" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
