@@ -1,211 +1,96 @@
-.bg-contract {
+#assist_price_customers {
+  overflow: auto;
   background-color: #313540;
-
-  .contract-container {
-    width: 90%;
-    margin: 20px auto;
-    padding: 30px;
-    border: 1px solid #000;
-    background-color: #fff;
-    border-radius: 20px;
-
-    .contract-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-
-      .company-logo img,
-      .partner-logos img {
-        width: 80px;
-        margin-bottom: 10px;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+  .search-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    input {
+      width: 90%;
+      padding: 10px 15px;
+      background-color: #3f4553;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid #3f4553;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      color: white;
+      &::placeholder {
+        color: rgb(180, 180, 180);
       }
-
-      .company-info {
-        text-align: center;
-        flex-grow: 1;
-        padding: 0 20px;
-
-        h1 {
-          font-size: 18px;
-          margin-bottom: 5px;
-        }
-
-        p,
-        .website {
-          margin: 3px 0;
-        }
-
-        .website {
-          color: #1684dd;
-          text-decoration: none;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .company-logo,
-        .partner-logos {
+    }
+  }
+  .btn-box {
+    position: absolute;
+    top: 35%;
+    right: 8%;
+    z-index: 2;
+    button {
+      padding: 0px 18px;
+      outline: none;
+      border: 1px solid #1473c7;
+      background-color: #1473c7;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+  .customer-toggle-box {
+    .box {
+      width: 90%;
+      background-color: #3f4553;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: auto auto 15px auto;
+      .clicktodowncrud {
+        cursor: pointer;
+        .personico {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
           display: flex;
           justify-content: center;
-          flex: 1;
-        }
-
-        .contract-header {
-          flex-direction: column;
           align-items: center;
+          margin-top: 5px;
+          margin-right: 10px;
+          i {
+            color: white;
+          }
         }
-
-        .company-logo,
-        .partner-logos {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 10px;
+        span {
+          color: white;
         }
-
-        .company-info {
-          order: 1; // Ensures the company info goes below the logos in responsive view
-          text-align: center;
-          padding: 0 10px;
-          margin-bottom: 20px;
+        p {
+          color: rgb(180, 180, 180);
+          padding: 0;
+          margin: 0;
         }
-
-        .company-logo img,
-        .partner-logos img {
-          margin: 5px;
+        .views {
+          z-index: 99;
+          margin-top: 12px;
+          color: rgb(180, 180, 180);
+          font-weight: 600;
+          font-size: 17px;
         }
       }
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-      color: #d6191c;
-      font-weight: 700;
-    }
-
-    form {
-      .contract-info {
-        margin-bottom: 20px;
-
-        .info-row {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-
-          label {
-            font-weight: bold;
-            width: 30%;
-            padding-right: 10px;
-          }
-
-          .input-area {
-            width: 65%;
-            border: none;
-            border-bottom: 1px solid #000;
-            padding: 4px 0px;
+      #dropdown-crud {
+        display: none;
+        background-color: #3f4553;
+        padding-top: 20px;
+        border-radius: 5px;
+        margin: auto;
+        .crud-buttons {
+          button {
+            padding: 1px 18px;
             outline: none;
-            font-family: inherit;
-            font-size: 14px;
+            border: 1px solid #1473c7;
+            background-color: #1473c7;
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 13px;
           }
-
-          .input-area:focus {
-            border-bottom: 2px solid #1684dd;
-          }
-        }
-      }
-    }
-
-    .payment-plan {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-
-      span {
-        margin-right: 20px;
-        display: flex;
-        align-items: center;
-
-        input[type="radio"] {
-          margin-right: 5px;
-        }
-
-        .installment-amount {
-          margin-left: 5px;
-        }
-      }
-    }
-
-    .material-info {
-      margin-bottom: 20px;
-
-      h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-
-      ul {
-        list-style: none;
-
-        li {
-          margin-bottom: 10px;
-
-          span {
-            margin-left: 5px;
-            font-weight: bold;
-          }
-        }
-      }
-      h6 {
-        margin: 25px 0px;
-        font-size: 14px;
-      }
-    }
-
-    .signatures {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-
-      .buyer-signature,
-      .seller-signature {
-        width: 45%;
-        display: flex;
-        flex-direction: column;
-
-        .input-area {
-          width: 50%;
-          border: none;
-          border-bottom: 1px solid #000;
-          padding: 4px 0px;
-          outline: none;
-          font-family: inherit;
-          font-size: 14px;
-          margin-bottom: 20px;
-          margin-left: 15px;
-        }
-
-        .input-area:focus {
-          border-bottom: 2px solid #1684dd;
-        }
-
-        .d-flex {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-
-          img {
-            margin-top: 15px;
-            margin-left: 10px;
-            width: 80px;
-            object-fit: cover;
-          }
-        }
-
-        @media (max-width: 768px) {
-          width: 100%;
-          margin-bottom: 10px;
         }
       }
     }

@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -15,122 +18,108 @@
     <title>Authentication Page</title>
   </head>
   <body>
-    <div class="bg-contract">
-      <div class="contract-container">
-        <div class="contract-header">
-          <div class="company-logo">
-            <img src="assets/odin-logo.png" alt="Odin Logo" />
-          </div>
-          <div class="company-info">
-            <h1>ODIN PROJECT ENGINEERING MMC</h1>
-            <p>+994 998 38 83</p>
-            <a href="#" class="website">www.odinproject.az</a>
-          </div>
-          <div class="partner-logos">
-            <img src="assets/rehau.jpg" alt="Rehau Logo" />
-            <br />
-            <img src="assets/eliz-logo.png" alt="Eliz Logo" />
+    <section id="bg-gray">
+      <header style="padding: 0px">
+        <div class="logout">
+          <div class="d-flex justify-content-between w-90">
+            <div>
+              <img src="assets/person-image.jpg" alt="" />
+              <span>Həsən Hüseynov</span>
+            </div>
+            <div>
+              <h5>Çıxış</h5>
+            </div>
           </div>
         </div>
-
-        <h2>SATIŞ SÖZLƏŞMƏSİ</h2>
-        <form action="">
-          <div class="contract-info">
-            <div class="info-row">
-              <label for="customer-name">Müştəri Adı:</label>
-              <input type="text" id="customer-name" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="address">Adres:</label>
-              <input type="text" id="address" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="phone">Telefon:</label>
-              <input type="text" id="phone" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="glass-thickness">Şüşə qalınlığı:</label>
-              <input type="text" id="glass-thickness" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="profile-color">Profil rəngi:</label>
-              <input type="text" id="profile-color" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="total-area">Toplam m²:</label>
-              <input type="text" id="total-area" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="sales-price">Satış Qiyməti:</label>
-              <input type="text" id="sales-price" class="input-area" />
-            </div>
-            <div class="info-row">
-              <label for="sales-price">Ödəmə Planı</label>
-              <input type="text" id="sales-price" class="input-area" />
-            </div>
-          </div>
-        </form>
-        <div class="payment-plan">
-          <span>
-            <input type="radio" id="cash" name="payment-plan" />
-            <label for="cash">Nəğd</label>
-          </span>
-          <span>
-            <input type="radio" id="installment" name="payment-plan" />
-            <label for="installment">Taksit:</label>
-            <span class="installment-amount">120+90</span>
-          </span>
-        </div>
-
-        <div class="material-info">
-          <h6>
-            Yuxarıda qeyd olunan ünvanda aparılacaq qatlanan şüşə eyvan, PVC
-            təchizat və montaj işlərini aşağıdakı şərtlərlə yerinə yetirməyi
-            qarşılıqlı razılaşdırır və öz öhdəmizə götürürük.
-          </h6>
-          <h3>MATERİAL XÜSUSİYYƏTLƏRİ:</h3>
+        <div style="display: none" class="nav-menu">
           <ul>
-            <li>
-              * Şüşə məhsulu 8 mm tək qat şüşə <span>( )</span> və ya paket şüşə
-              <span>(✓)</span>
-            </li>
-            <li>* Paslanmayan alüminium profil və Rəngli <span>(✓)</span></li>
+            <li><a href="task.html">Tapşırıqlar</a></li>
+            <li><a href="customer.html">Müştərilər</a></li>
+            <li><a href="addcustomer.html">Əlavə et</a></li>
           </ul>
-          <h6>
-            Xüsusiyyətləri və ödəniş şərtləri yuxarıda göstərilən müqavilə 2
-            (iki) nüsxədə tərtib edilmiş və tərəflər tərəfindən oxunmuş və
-            imzalanmışdır.
-          </h6>
-          <h6>Tarix: 03.10.2024</h6>
         </div>
-        <div class="signatures">
-          <div class="buyer-signature">
-            <div class="d-flex">
-              <p>Alıcı (imza):</p>
-              <img
-                style="visibility: hidden"
-                src="assets/signature.png"
-                alt="signature"
-              />
-            </div>
-            <div class="d-flex">
-              <p>Ad<br/>Soyad:</p>
-              <input type="text" id="buyer-name" class="input-area" />
-            </div>
-          </div>
-          <div class="seller-signature">
-            <div class="d-flex">
-              <p>Satıcı (imza):</p>
-              <img src="assets/signature.png" alt="signature" />
-            </div>
-            <div class="d-flex">
-              <p>Ad<br/>Soyad:</p>
-              <input type="text" id="seller-name" class="input-area" />
-            </div>
+      </header>
+      <section id="assist_price_customers">
+        <div class="search-box">
+          <input type="text" placeholder="Axtarış" />
+          <div class="btn-box">
+            <button>Axtar</button>
           </div>
         </div>
-      </div>
-    </div>
+        <div class="customer-toggle-box">
+          <div class="box">
+            <div class="clicktodowncrud d-flex justify-content-between">
+              <div class="d-flex">
+                <div style="background-color: #1473c7" class="personico">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <div>
+                  <span>Həsən</span>
+                  <p>Müştəri #213269</p>
+                </div>
+              </div>
+              <div>
+                <div class="views"><i class="fa-solid fa-eye"></i> 20</div>
+              </div>
+            </div>
+            <section id="dropdown-crud">
+              <div class="d-flex justify-content-between crud-buttons">
+                <button>SİL</button>
+                <button>DÜZƏLİŞ</button>
+                <button>KOPYALA</button>
+                <button>BAX</button>
+              </div>
+            </section>
+          </div>
+          <div class="box">
+            <div class="clicktodowncrud d-flex justify-content-between">
+              <div class="d-flex">
+                <div style="background-color: #1473c7" class="personico">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <div>
+                  <span>Həsən</span>
+                  <p>Müştəri #213269</p>
+                </div>
+              </div>
+              <div>
+                <div class="views"><i class="fa-solid fa-eye"></i> 20</div>
+              </div>
+            </div>
+            <section id="dropdown-crud">
+              <div class="d-flex justify-content-between crud-buttons">
+                <button>SİL</button>
+                <button>DÜZƏLİŞ</button>
+                <button>KOPYALA</button>
+                <button>BAX</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <a href="task.html">
+              <div class="tab active">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="assistprice.html">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="salescontract.html">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

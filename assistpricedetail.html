@@ -13,85 +13,114 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="vendors/bootstrap.min.css" />
     <title>Authentication Page</title>
+    <style>
+      html {
+        background-color: #cfd0d4;
+      }
+    </style>
   </head>
-  <body>
-    <div class="bg-contract">
-      <div class="quote-container">
-        <div class="assistpricedetail-header">
-          <div class="logo">
-            <img src="assets/odin-logo.png" alt="Odin Logo" />
-          </div>
-          <div class="header-title">
-            <h1>QİYMƏT TƏKLİFİ</h1>
-          </div>
+  <body style="background-color: white">
+    <section id="logoandtitle">
+      <div class="d-flex align-items-center justify-content-center">
+        <div style="width: 60%"><img src="assets/odin-logo.png" alt="" /></div>
+        <div><p class="priceassist">QİYMƏT TƏKLİFİ</p></div>
+      </div>
+    </section>
+    <section id="assistprice-customerinfo">
+      <div class="d-flex align-items-center justify-content-around w-90">
+        <div>
+          <h6>Müştəri məlumatları :</h6>
+          <h2>Kərimov İsmayıl</h2>
+          <h6>Azerbaijan, Baku</h6>
         </div>
-
-        <div class="client-info">
-          <div>
-            <p>Müştəri məlumatları :</p>
-            <h2>Karimov İsmayıl</h2>
-            <p>Azerbaijan, Baku</p>
-          </div>
-          <div class="pricing-info">
-            <p>Ümumi qiymət :</p>
-            <h2>10.500 ₼</h2>
-          </div>
-          <div class="date-info">
-            <p>Tarix :</p>
-            <h2>10/09/2024</h2>
-          </div>
-          <div class="serial-info">
-            <p>Seriya № :</p>
-            <h2>CMP-23446</h2>
-          </div>
+        <div>
+          <h6>Ümumi qiymət :</h6>
+          <h2>10.500</h2>
         </div>
-
-        <table class="product-table">
-          <thead>
-            <tr>
-              <th>MƏHSUL</th>
-              <th>AÇIQLAMA</th>
-              <th>QİYMƏT</th>
-              <th>SAY</th>
-              <th>ÖLÇÜ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>1. IZO sistem</strong></td>
-              <td>
-                Profil : ASAŞ (Türkiyə istehsalı) Şüşə : 6mm ağ şəffaf Temper +
-                12HB=6mm ağ şəffaf Temper Aksessuar : Avropa, Sigenia
-              </td>
-              <td>50</td>
-              <td>1</td>
-              <td>7.5m²</td>
-            </tr>
-            <tr>
-              <td><strong>2. HBSB</strong></td>
-              <td>
-                Profil : ASAŞ (Türkiyə istehsalı) İki qat temperli şüşə
-                5/32''(6mm) Tempered + 1/2'' (12mm) aralıq + 5/32''(6mm)
-                Tempered Aksessuar : Avropa, Sigenia
-              </td>
-              <td>70</td>
-              <td>1</td>
-              <td>24m²</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="total-section">
-          <div class="delivery">
-            <p>ÇATDIRILMA ,<br />QURAŞDIRILMA</p>
-            <h2 style="color: #0c397d">0 ₼</h2>
-          </div>
-          <div class="grand-total">
-            <p>ÜMUMİ QİYMƏT</p>
-            <h2>10.500 ₼</h2>
-          </div>
+        <div>
+          <h6>Tarix :</h6>
+          <h6>10/09/2024</h6>
+        </div>
+        <div>
+          <h6>Seriya № :</h6>
+          <h6>CMP-23446</h6>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="assistprice-product-title">
+      <div class="title-column">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="w-15"><h6>MƏHSUL</h6></div>
+          <div class="w-40">
+            <h6 style="text-align: left; padding-left: 25px">AÇIQLAMA</h6>
+          </div>
+          <div class="w-15"><h6>QİYMƏT</h6></div>
+          <div class="w-15"><h6>SAY</h6></div>
+          <div class="w-15"><h6>ÖLÇÜ</h6></div>
+        </div>
+      </div>
+    </section>
+    <section id="assistprice-product-info">
+      <div class="title-column">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="w-15"><h6>IZO sistem</h6></div>
+          <div class="w-40">
+            <h6
+              style="
+                width: 95%;
+                text-align: left;
+                padding-left: 25px;
+                line-height: 20px;
+              "
+            >
+              Profil: ASAŞ (Türkiye istehsal) Şüşə: 6mm ağ şəffaf Temper +
+              12HB+6mm ağ şəffaf
+            </h6>
+          </div>
+          <div class="w-15"><h6></h6></div>
+          <div class="w-15"><h6>1</h6></div>
+          <div class="w-15"><h6>7.5m2</h6></div>
+        </div>
+      </div>
+      <div class="title-column">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="w-15"><h6>HBŞB</h6></div>
+          <div class="w-40">
+            <h6
+              style="
+                width: 95%;
+                text-align: left;
+                padding-left: 25px;
+                line-height: 20px;
+              "
+            >
+              Profil: ASAŞ (Türkiye istehsal) Şüşə: 6mm ağ şəffaf Temper +
+              12HB+6mm ağ şəffaf
+            </h6>
+          </div>
+          <div class="w-15"><h6></h6></div>
+          <div class="w-15"><h6>1</h6></div>
+          <div class="w-15"><h6>24m2</h6></div>
+        </div>
+      </div>
+    </section>
+    <section id="delivery-configure">
+      <div style="float: right; margin-top: 13px" class="d-flex">
+        <h6 style="font-size: 12px">ÇATDIRILMA - QURAŞDIRILMA</h6>
+        <h6 style="color: #084f8c">0 ₼</h6>
+      </div>
+    </section>
+    <section id="sub-total-price">
+      <div style="float: right; margin-top: 12px" class="d-flex">
+        <h6>ÜMUMİ QİYMƏT</h6>
+        <h6 style="font-size: 24px; margin-top: -6px">10.500 ₼</h6>
+      </div>
+    </section>
+    <section id="pdf">
+      <div class="d-flex justify-content-center">
+        <button>PDF kimi yüklə</button>
+      </div>
+    </section>
   </body>
 </html>

@@ -70,13 +70,17 @@
         .note-it {
           z-index: 99;
           margin-top: 12px;
-          button {
-            padding: 0px 12px;
-            outline: none;
-            border: 1px solid #1473c7;
-            background-color: #1473c7;
+          a {
             color: white;
-            border-radius: 5px;
+            text-decoration: none;
+            button {
+              padding: 0px 12px;
+              outline: none;
+              border: 1px solid #1473c7;
+              background-color: #1473c7;
+              color: white;
+              border-radius: 5px;
+            }
           }
         }
       }

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="vendors/bootstrap.min.css" />
     <title>Authentication Page</title>
   </head>
-  <body>
+  <body style="overflow: hidden;">
     <section id="bg-gray">
       <section id="addcustomerheader">
         <div>
@@ -48,26 +48,26 @@
           <div class="row row-gap-4">
             <div class="col-6">
               <div class="boxico">
-                <i class="fa-solid fa-book"></i>
+                <i class="fa-solid fa-calendar-check"></i>
                 <h6>GERİ DÖNÜŞ</h6>
               </div>
             </div>
             <div class="col-6">
               <div class="boxico">
-                <i class="fa-solid fa-book"></i>
-                <h6>GERİ DÖNÜŞ</h6>
+                <i class="fas fa-file-signature"></i>
+                <h6>İLKİN RAZILAŞMA</h6>
               </div>
             </div>
             <div class="col-6">
               <div class="boxico">
-                <i class="fa-solid fa-book"></i>
-                <h6>GERİ DÖNÜŞ</h6>
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <h6>QİYMƏT TƏKLİFİ</h6>
               </div>
             </div>
             <div class="col-6">
               <div class="boxico">
-                <i class="fa-solid fa-book"></i>
-                <h6>GERİ DÖNÜŞ</h6>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <h6>REDAKTƏ ET</h6>
               </div>
             </div>
           </div>
@@ -79,15 +79,21 @@
       <footer>
         <div class="tabs-box">
           <div class="change-tabs d-flex justify-content-between">
-            <div class="tab active">
-              <i class="fa-solid fa-list-ol"></i>
-            </div>
-            <div class="tab">
-              <i class="fa-solid fa-book"></i>
-            </div>
-            <div class="tab">
-              <i class="fa-solid fa-book"></i>
-            </div>
+            <a href="task.html">
+              <div class="tab active">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="assistprice.html">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="salescontract.html">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
           </div>
         </div>
       </footer>

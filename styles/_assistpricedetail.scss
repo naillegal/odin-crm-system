@@ -1,153 +1,113 @@
-.quote-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-}
-
-.assistpricedetail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  .logo img {
-    width: 120px;
+#logoandtitle {
+  padding: 30px 0px;
+  img {
+    width: 40%;
+    object-fit: cover;
   }
-
-  .header-title {
-    text-align: right;
-
-    h1 {
-      font-size: 24px;
-      color: #000;
-      font-weight: bold;
-    }
-  }
-}
-
-.client-info {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f3f6fb;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  flex-wrap: wrap; /* Ensure elements wrap properly */
-
-  p {
-    font-size: 14px;
-    color: #666;
-  }
-
-  h2 {
+  .priceassist {
+    font-weight: 900;
+    margin-top: 15px;
     font-size: 18px;
-    font-weight: bold;
-    color: #000;
   }
+}
 
-  .pricing-info h2,
-  .date-info h2,
-  .serial-info h2 {
-    font-weight: bold;
+#assistprice-customerinfo {
+  width: 95%;
+  margin: auto;
+  background-color: #edeeed;
+  padding: 40px 0px;
+  .w90 {
+    width: 90%;
+    margin: auto;
   }
+  h6 {
+    font-size: 9px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 900;
+  }
+}
 
-  /* For screens under 768px */
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two items per row */
-    column-gap: 15px; /* Gap between the two columns */
-    row-gap: 12px; /* Gap between the two rows */
-
-    .client-info > div {
-      width: 100%; /* Ensure each div takes full width in its grid cell */
-      box-sizing: border-box; /* Include padding and margin in width */
+#assistprice-product-title {
+  padding-top: 40px;
+  width: 95%;
+  margin: auto;
+  .title-column {
+    color: white;
+    background-color: #084f8c;
+    padding: 5px 0px;
+    h6 {
+      font-size: 10px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .w-15 {
+      width: 15%;
+      margin: auto;
+    }
+    .w-40 {
+      width: 40%;
+      margin: auto;
     }
   }
-
-  /* For screens under 480px (even smaller displays) */
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr 1fr; /* Stack the items vertically */
-    text-align: center;
-
-    .client-info > div {
-      margin-bottom: 15px;
-    }
-
-    .client-info > div h2,
-    .client-info > div p {
+}
+#assistprice-product-info {
+  width: 95%;
+  margin: auto;
+  .title-column {
+    padding: 18px 0px;
+    h6 {
+      font-size: 10px;
       text-align: center;
     }
+    .w-15 {
+      width: 15%;
+      margin: auto;
+    }
+    .w-40 {
+      width: 40%;
+      margin: auto;
+    }
   }
 }
-
-.product-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-
-  th {
-    background-color: #0c397d;
-    color: #fff;
-    padding: 10px;
+#delivery-configure {
+  background-color: #edeeed;
+  height: 40px;
+  h6 {
+    padding: 0px 25px;
+    font-weight: 900;
     font-size: 14px;
-    text-align: left;
-  }
-
-  td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    text-align: center;
-}
-@media (max-width: 768px) {
-  td:nth-child(2) {
-    font-size: 10px; /* Apply 6px font size to the second td */
   }
 }
-}
 
-.total-section {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f3f6fb;
-  padding: 20px;
-  border-radius: 8px;
-
-  .delivery {
-    text-align: center;
-
-    p {
-      font-size: 14px;
-      color: #000;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: bold;
-      color: #000;
+#sub-total-price {
+  background-color: #084f8c;
+  height: 45px;
+  width: 69%;
+  float: right;
+  margin: auto;
+  h6 {
+    padding: 0px 15px;
+    font-weight: 900;
+    font-size: 15px;
+    color: white;
+    @media (max-width: 400px) {
+      font-size: 15px !important;
+      margin-top: 0px !important;
     }
   }
+}
 
-  .grand-total {
-    text-align: center;
-
-    p {
-      font-size: 14px;
-      color: #fff;
-      background-color: #0c397d;
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-      color: #000;
-    }
+#pdf{
+  padding: 100px 0px;
+  button{
+    outline: none;
+    border: 1px solid #084f8c;
+    background-color: #084f8c;
+    color: white;
+    padding:5px 15px;
+    border-radius: 3px;
   }
 }

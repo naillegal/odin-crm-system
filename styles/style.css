@@ -172,7 +172,10 @@
 #bg-gray #relations-box .relation .cursor-pointer .calendar {
   float: right;
 }
-#bg-gray #relations-box .relation .cursor-pointer .calendar span {
+#bg-gray #relations-box .relation .cursor-pointer .calendar a {
+  text-decoration: none;
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar a span {
   color: #1473c7;
   font-weight: bold;
   float: right;
@@ -186,6 +189,47 @@
 #bg-gray #relations-box .relation hr {
   color: white;
   margin: 0px;
+}
+#bg-gray #relations-box .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+#bg-gray #relations-box .pagination button {
+  background-color: #084f8c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+#bg-gray #relations-box .pagination button:hover {
+  background-color: #063b66;
+}
+#bg-gray #relations-box .pagination ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#bg-gray #relations-box .pagination ul li {
+  margin: 0 5px;
+}
+#bg-gray #relations-box .pagination ul li a {
+  display: block;
+  padding: 10px 15px;
+  background-color: #084f8c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#bg-gray #relations-box .pagination ul li a:hover {
+  background-color: #042642;
 }
 #bg-gray footer {
   position: sticky;
@@ -298,7 +342,11 @@
   z-index: 99;
   margin-top: 12px;
 }
-#customers .customer-info-box .box .clicktodown .note-it button {
+#customers .customer-info-box .box .clicktodown .note-it a {
+  color: white;
+  text-decoration: none;
+}
+#customers .customer-info-box .box .clicktodown .note-it a button {
   padding: 0px 12px;
   outline: none;
   border: 1px solid #1473c7;
@@ -493,6 +541,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 32px;
+  cursor: pointer;
 }
 #addcustomerform form .onelineinputs .icon-bg i {
   color: white;
@@ -879,330 +928,390 @@
   font-size: 13px;
 }
 
-.bg-contract {
-  background-color: #313540;
+#logoandtitle {
+  padding: 30px 0px;
 }
-.bg-contract .contract-container {
-  width: 90%;
-  margin: 20px auto;
-  padding: 30px;
-  border: 1px solid #000;
-  background-color: #fff;
-  border-radius: 20px;
-}
-.bg-contract .contract-container .contract-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-.bg-contract .contract-container .contract-header .company-logo img,
-.bg-contract .contract-container .contract-header .partner-logos img {
-  width: 80px;
-  margin-bottom: 10px;
-}
-.bg-contract .contract-container .contract-header .company-info {
-  text-align: center;
-  flex-grow: 1;
-  padding: 0 20px;
-}
-.bg-contract .contract-container .contract-header .company-info h1 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-.bg-contract .contract-container .contract-header .company-info p,
-.bg-contract .contract-container .contract-header .company-info .website {
-  margin: 3px 0;
-}
-.bg-contract .contract-container .contract-header .company-info .website {
-  color: #1684dd;
-  text-decoration: none;
-}
-@media (max-width: 768px) {
-  .bg-contract .contract-container .contract-header .company-logo,
-  .bg-contract .contract-container .contract-header .partner-logos {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-  }
-  .bg-contract .contract-container .contract-header .contract-header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .bg-contract .contract-container .contract-header .company-logo,
-  .bg-contract .contract-container .contract-header .partner-logos {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .bg-contract .contract-container .contract-header .company-info {
-    order: 1;
-    text-align: center;
-    padding: 0 10px;
-    margin-bottom: 20px;
-  }
-  .bg-contract .contract-container .contract-header .company-logo img,
-  .bg-contract .contract-container .contract-header .partner-logos img {
-    margin: 5px;
-  }
-}
-.bg-contract .contract-container h2 {
-  text-align: center;
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #d6191c;
-  font-weight: 700;
-}
-.bg-contract .contract-container form .contract-info {
-  margin-bottom: 20px;
-}
-.bg-contract .contract-container form .contract-info .info-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.bg-contract .contract-container form .contract-info .info-row label {
-  font-weight: bold;
-  width: 30%;
-  padding-right: 10px;
-}
-.bg-contract .contract-container form .contract-info .info-row .input-area {
-  width: 65%;
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 4px 0px;
-  outline: none;
-  font-family: inherit;
-  font-size: 14px;
-}
-.bg-contract .contract-container form .contract-info .info-row .input-area:focus {
-  border-bottom: 2px solid #1684dd;
-}
-.bg-contract .contract-container .payment-plan {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.bg-contract .contract-container .payment-plan span {
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-}
-.bg-contract .contract-container .payment-plan span input[type=radio] {
-  margin-right: 5px;
-}
-.bg-contract .contract-container .payment-plan span .installment-amount {
-  margin-left: 5px;
-}
-.bg-contract .contract-container .material-info {
-  margin-bottom: 20px;
-}
-.bg-contract .contract-container .material-info h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.bg-contract .contract-container .material-info ul {
-  list-style: none;
-}
-.bg-contract .contract-container .material-info ul li {
-  margin-bottom: 10px;
-}
-.bg-contract .contract-container .material-info ul li span {
-  margin-left: 5px;
-  font-weight: bold;
-}
-.bg-contract .contract-container .material-info h6 {
-  margin: 25px 0px;
-  font-size: 14px;
-}
-.bg-contract .contract-container .signatures {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.bg-contract .contract-container .signatures .buyer-signature,
-.bg-contract .contract-container .signatures .seller-signature {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-}
-.bg-contract .contract-container .signatures .buyer-signature .input-area,
-.bg-contract .contract-container .signatures .seller-signature .input-area {
-  width: 50%;
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 4px 0px;
-  outline: none;
-  font-family: inherit;
-  font-size: 14px;
-  margin-bottom: 20px;
-  margin-left: 15px;
-}
-.bg-contract .contract-container .signatures .buyer-signature .input-area:focus,
-.bg-contract .contract-container .signatures .seller-signature .input-area:focus {
-  border-bottom: 2px solid #1684dd;
-}
-.bg-contract .contract-container .signatures .buyer-signature .d-flex,
-.bg-contract .contract-container .signatures .seller-signature .d-flex {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.bg-contract .contract-container .signatures .buyer-signature .d-flex img,
-.bg-contract .contract-container .signatures .seller-signature .d-flex img {
-  margin-top: 15px;
-  margin-left: 10px;
-  width: 80px;
+#logoandtitle img {
+  width: 40%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-@media (max-width: 768px) {
-  .bg-contract .contract-container .signatures .buyer-signature,
-  .bg-contract .contract-container .signatures .seller-signature {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-.quote-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-}
-
-.assistpricedetail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.assistpricedetail-header .logo img {
-  width: 120px;
-}
-.assistpricedetail-header .header-title {
-  text-align: right;
-}
-.assistpricedetail-header .header-title h1 {
-  font-size: 24px;
-  color: #000;
-  font-weight: bold;
-}
-
-.client-info {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f3f6fb;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  flex-wrap: wrap; /* Ensure elements wrap properly */
-  /* For screens under 768px */
-  /* For screens under 480px (even smaller displays) */
-}
-.client-info p {
-  font-size: 14px;
-  color: #666;
-}
-.client-info h2 {
+#logoandtitle .priceassist {
+  font-weight: 900;
+  margin-top: 15px;
   font-size: 18px;
-  font-weight: bold;
-  color: #000;
-}
-.client-info .pricing-info h2,
-.client-info .date-info h2,
-.client-info .serial-info h2 {
-  font-weight: bold;
-}
-@media (max-width: 768px) {
-  .client-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two items per row */
-    -moz-column-gap: 15px;
-         column-gap: 15px; /* Gap between the two columns */
-    row-gap: 12px; /* Gap between the two rows */
-  }
-  .client-info .client-info > div {
-    width: 100%; /* Ensure each div takes full width in its grid cell */
-    box-sizing: border-box; /* Include padding and margin in width */
-  }
-}
-@media (max-width: 480px) {
-  .client-info {
-    grid-template-columns: 1fr 1fr; /* Stack the items vertically */
-    text-align: center;
-  }
-  .client-info .client-info > div {
-    margin-bottom: 15px;
-  }
-  .client-info .client-info > div h2,
-  .client-info .client-info > div p {
-    text-align: center;
-  }
 }
 
-.product-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+#assistprice-customerinfo {
+  width: 95%;
+  margin: auto;
+  background-color: #edeeed;
+  padding: 40px 0px;
 }
-.product-table th {
-  background-color: #0c397d;
-  color: #fff;
-  padding: 10px;
-  font-size: 14px;
-  text-align: left;
+#assistprice-customerinfo .w90 {
+  width: 90%;
+  margin: auto;
 }
-.product-table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-size: 14px;
+#assistprice-customerinfo h6 {
+  font-size: 9px;
+  font-weight: 900;
+}
+#assistprice-customerinfo h2 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+#assistprice-product-title {
+  padding-top: 40px;
+  width: 95%;
+  margin: auto;
+}
+#assistprice-product-title .title-column {
+  color: white;
+  background-color: #084f8c;
+  padding: 5px 0px;
+}
+#assistprice-product-title .title-column h6 {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+}
+#assistprice-product-title .title-column .w-15 {
+  width: 15%;
+  margin: auto;
+}
+#assistprice-product-title .title-column .w-40 {
+  width: 40%;
+  margin: auto;
+}
+
+#assistprice-product-info {
+  width: 95%;
+  margin: auto;
+}
+#assistprice-product-info .title-column {
+  padding: 18px 0px;
+}
+#assistprice-product-info .title-column h6 {
+  font-size: 10px;
   text-align: center;
 }
-@media (max-width: 768px) {
-  .product-table td:nth-child(2) {
-    font-size: 10px; /* Apply 6px font size to the second td */
+#assistprice-product-info .title-column .w-15 {
+  width: 15%;
+  margin: auto;
+}
+#assistprice-product-info .title-column .w-40 {
+  width: 40%;
+  margin: auto;
+}
+
+#delivery-configure {
+  background-color: #edeeed;
+  height: 40px;
+}
+#delivery-configure h6 {
+  padding: 0px 25px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+#sub-total-price {
+  background-color: #084f8c;
+  height: 45px;
+  width: 69%;
+  float: right;
+  margin: auto;
+}
+#sub-total-price h6 {
+  padding: 0px 15px;
+  font-weight: 900;
+  font-size: 15px;
+  color: white;
+}
+@media (max-width: 400px) {
+  #sub-total-price h6 {
+    font-size: 15px !important;
+    margin-top: 0px !important;
   }
 }
 
-.total-section {
+#pdf {
+  padding: 100px 0px;
+}
+#pdf button {
+  outline: none;
+  border: 1px solid #084f8c;
+  background-color: #084f8c;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
+
+#assist_price_customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+}
+#assist_price_customers .search-box {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  background-color: #f3f6fb;
-  padding: 20px;
-  border-radius: 8px;
+  justify-content: center;
+  padding: 20px 0px;
 }
-.total-section .delivery {
-  text-align: center;
+#assist_price_customers .search-box input {
+  width: 90%;
+  padding: 10px 15px;
+  background-color: #3f4553;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #3f4553;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: white;
 }
-.total-section .delivery p {
-  font-size: 14px;
-  color: #000;
-  font-weight: bold;
+#assist_price_customers .search-box input::-moz-placeholder {
+  color: rgb(180, 180, 180);
 }
-.total-section .delivery h2 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000;
+#assist_price_customers .search-box input::placeholder {
+  color: rgb(180, 180, 180);
 }
-.total-section .grand-total {
-  text-align: center;
+#assist_price_customers .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
 }
-.total-section .grand-total p {
-  font-size: 14px;
-  color: #fff;
-  background-color: #0c397d;
-  display: inline-block;
-  padding: 5px 10px;
+#assist_price_customers .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
   border-radius: 5px;
 }
-.total-section .grand-total h2 {
-  font-size: 18px;
+#assist_price_customers .customer-toggle-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud {
+  cursor: pointer;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico i {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud span {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .views {
+  z-index: 99;
+  margin-top: 12px;
+  color: rgb(180, 180, 180);
+  font-weight: 600;
+  font-size: 17px;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud {
+  display: none;
+  background-color: #3f4553;
+  padding-top: 20px;
+  border-radius: 5px;
+  margin: auto;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud .crud-buttons button {
+  padding: 1px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+#sales-contract-upside {
+  background-color: #cfd0d4;
+  padding: 20px 0px;
+}
+#sales-contract-upside h5 {
+  font-size: 12px;
+  text-align: center;
+}
+#sales-contract-upside h6 {
+  text-align: center;
+  font-size: 11px;
+}
+
+#sales-form {
+  padding: 20px 0px;
+  background-color: #cfd0d4;
+}
+#sales-form h2 {
+  color: #b94244;
+  text-align: center;
+  font-weight: 900;
+}
+#sales-form p {
+  float: right;
+  margin-right: 20px;
+}
+#sales-form form {
+  width: 95%;
+  margin: auto;
+  padding: 10px 0px;
+  font-family: Arial, sans-serif;
+}
+#sales-form form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#sales-form form table td {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+}
+#sales-form form table td label {
   font-weight: bold;
-  color: #000;
+  font-size: 8px;
+  vertical-align: middle;
+  padding: 0px 2px;
+}
+#sales-form form table td input {
+  outline: none;
+  font-size: 11px;
+  background-color: #cfd0d4;
+  color: black;
+}
+#sales-form form table td input::-moz-placeholder {
+  color: black;
+}
+#sales-form form table td input::placeholder {
+  color: black;
+}
+#sales-form form table td input[type=radio] {
+  transform: scale(0.8);
+  margin-left: 10px;
+  vertical-align: middle;
+}
+#sales-form form table td input[type=radio]:focus {
+  box-shadow: 0 0 0;
+}
+#sales-form form table td input[type=text],
+#sales-form form table td input[type=tel] {
+  width: 95%;
+  padding: 0px 2px;
+  border: 1px solid #cfd0d4;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#sales-form form table td input[type=checkbox] {
+  margin-right: 5px;
+}
+
+#material-info {
+  background-color: #cfd0d4;
+}
+#material-info .w95 {
+  width: 95%;
+  margin: auto;
+}
+#material-info .w95 h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+#material-info .w95 ul {
+  list-style: none;
+}
+#material-info .w95 ul li {
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+#material-info .w95 ul li span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+#material-info .w95 h6 {
+  font-size: 11px;
+}
+#material-info .w95 .padding-box {
+  padding-top: 18px;
+}
+
+#signatures {
+  background-color: #cfd0d4;
+  padding-bottom: 20px;
+}
+#signatures .w-95 {
+  width: 95%;
+  margin: auto;
+}
+#signatures .w-95 label {
+  font-size: 10px;
+  margin-top: 1px;
+}
+#signatures .w-95 input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: black;
+  outline: none;
+  font-size: 10px;
+  padding: 0px 3px;
+  width: 150px;
+}
+#signatures .w-95 input::-moz-placeholder {
+  color: black;
+}
+#signatures .w-95 input::placeholder {
+  color: black;
+}
+#signatures .w-95 h6 {
+  font-size: 14px;
+  margin-left: 25px;
+}
+#signatures .w-95 h6 span {
+  font-size: 12px;
+  color: rgb(88, 88, 88);
+}
+#signatures .w-95 .rel {
+  position: relative;
+}
+#signatures .w-95 .rel .abs {
+  position: absolute;
+  bottom: 180%;
+  left: 45%;
+}
+#signatures .w-95 .rel .abs img {
+  width: 40%;
+  margin-left: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#sales-pdf {
+  padding: 40px 0px;
+}
+#sales-pdf button {
+  outline: none;
+  border: 1px solid #b94244;
+  background-color: #b94244;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
 }
 
 * {
