@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
+    <title>Müştəri Məlumatları</title>
+  </head>
+  <body style="overflow: hidden;">
+    <section id="bg-gray">
+      <section id="addcustomerheader">
+        <div>
+          <a href="{% url 'customer' %}">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <h5>Müştəri məlumatları</h5>
+        </div>
+      </section>
+
+      <section id="tables">
+        <div class="customer-table">
+          <div class="customer-info-box">
+            <div class="box">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <div class="personico" style="background-color: 
+                  {% if customer.sales_contracts.exists %}#941c1b
+                  {% elif customer.price_offers.exists %}#197e16
+                  {% else %}#1473c7
+                  {% endif %};">
+                  <i class="fa-regular fa-user"></i>
+              </div>
+                  <div>
+                    <span>{{ customer.full_name }}</span>
+                    <p>Müştəri {{ customer.customer_code }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-container">
+          <div class="row row-gap-4">
+            <div class="col-6">
+              <div class="boxico">
+                <a href="{% url 'feedback' customer.id %}">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  <h6>GERİ DÖNÜŞ</h6>
+                </a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="boxico">
+                <a href="{% url 'adminsalescontract' customer.id %}">
+                <i class="fas fa-file-signature"></i>
+                  <h6>İLKİN RAZILAŞMA</h6>
+                </a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="boxico">
+                <a href="{% url 'adminassistprice' customer.id %}">
+                  <i class="fa-solid fa-hand-holding-dollar"></i>
+                  <h6>QİYMƏT TƏKLİFİ</h6>
+              </a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="boxico">
+                <a href="{% url 'edit_customer' customer.id %}">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                  <h6>REDAKTƏ ET</h6>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <a href="{% url 'delete_customer' customer.id %}" onclick="return confirm('Müştərini və ona aid olan hər şeyi silmək istədiyinizə əminsiniz?')">
+            <button>CRM SONLANDIR</button>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="{% url 'assistprice' %}" class="{% if request.resolver_match.url_name == 'assistprice' %}active{% endif %}">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="{% url 'salescontract' %}" class="{% if request.resolver_match.url_name == 'salescontract' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+#customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+  .search-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 90%;
+        padding: 10px 15px;
+        background-color: #3f4553;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #3f4553;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        color: white;
+        &::placeholder {
+          color: rgb(180, 180, 180);
+        }
+      }
+    }
+    .btn-box {
+      position: absolute;
+      top: 35%;
+      right: 8%;
+      z-index: 2;
+      button {
+        padding: 0px 18px;
+        outline: none;
+        border: 1px solid #1473c7;
+        background-color: #1473c7;
+        color: white;
+        border-radius: 5px;
+      }
+    }
+    }
+  .customer-info-box {
+    background-color: #313540;
+    .box {
+      width: 90%;
+      background-color: #3f4553;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: auto auto 15px auto;
+      .clicktodown {
+        cursor: pointer;
+        .personico {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 5px;
+          margin-right: 10px;
+          i {
+            color: white;
+          }
+        }
+        span {
+          color: white;
+        }
+        p {
+          color: rgb(180, 180, 180);
+          padding: 0;
+          margin: 0;
+        }
+        .note-it {
+          z-index: 99;
+          margin-top: 12px;
+          a {
+            color: white;
+            text-decoration: none;
+            button {
+              padding: 0px 12px;
+              outline: none;
+              border: 1px solid #1473c7;
+              background-color: #1473c7;
+              color: white;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .dropdown-feedback {
+        display: none;
+        background-color: #3f4553;
+        padding-top: 20px;
+        border-radius: 5px;
+        width: 90%;
+        margin: auto;
+        .w-80 {
+          width: 80%;
+          margin: auto;
+        }
+        .tab1 {
+          display: block;
+          .upside-content {
+            color: white;
+          }
+          .feed-content {
+            margin-top: 5px;
+            border: 1px solid rgb(180, 180, 180);
+            color: white;
+            border-radius: 3px;
+            padding: 10px;
+          }
+        }
+        .tab2 {
+          display: none;
+          form {
+            label {
+              color: white;
+            }
+
+            input,
+            select {
+              width: 100%;
+              margin: 8px 0px;
+              padding: 10px;
+              background-color: transparent;
+              border: 1px solid gray;
+              border-radius: 3px;
+              outline: none;
+              color: white;
+              transition: 0.2s ease-in-out;
+
+              &::placeholder {
+                color: white;
+              }
+
+              &:focus {
+                border-color: #1473c7;
+                box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+              }
+            }
+
+            input[type="date"] {
+              color: white;
+              background-color: transparent;
+
+              &::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+                cursor: pointer;
+              }
+
+              &::-webkit-inner-spin-button,
+              &::-webkit-clear-button {
+                display: none;
+              }
+            }
+
+            select {
+              background-color: #3f4553;
+            }
+          }
+          button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px 0px;
+            font-weight: 600;
+            outline: none;
+            border: 1px solid #1473c7;
+            background-color: #1473c7;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+              background-color: #105a9c;
+            }
+          }
+        }
+        #change-feedtoinfo {
+          margin-top: 40px;
+          .feedtoinfo-box {
+            color: white;
+            .clickable-tab {
+              background-color: #c2c5ce;
+              width: 48%;
+              padding: 3px 0px;
+              display: flex;
+              cursor: pointer;
+              color: rgba(0, 0, 0, 0.8);
+              font-weight: 600;
+              justify-content: center;
+              align-items: center;
+              clip-path: polygon(0 100%, 100% 100%, 95% 0%, 5% 0%);
+            }
+            .active {
+              color: white;
+              background-color: #1473c7;
+            }
+          }
+        }
+      }
+    }
+  }
+}

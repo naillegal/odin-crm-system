@@ -1,0 +1,117 @@
+#assist_price_customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+  .search-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 90%;
+        padding: 10px 15px;
+        background-color: #3f4553;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #3f4553;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        color: white;
+        &::placeholder {
+          color: rgb(180, 180, 180);
+        }
+      }
+    }
+    .btn-box {
+      position: absolute;
+      top: 35%;
+      right: 8%;
+      z-index: 2;
+      button {
+        padding: 0px 18px;
+        outline: none;
+        border: 1px solid #1473c7;
+        background-color: #1473c7;
+        color: white;
+        border-radius: 5px;
+      }
+    }
+    }
+  .btn-box {
+    position: absolute;
+    top: 35%;
+    right: 8%;
+    z-index: 2;
+    button {
+      padding: 0px 18px;
+      outline: none;
+      border: 1px solid #1473c7;
+      background-color: #1473c7;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+  .customer-toggle-box {
+    .box {
+      width: 90%;
+      background-color: #3f4553;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: auto auto 15px auto;
+      .clicktodowncrud {
+        cursor: pointer;
+        .personico {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 5px;
+          margin-right: 10px;
+          i {
+            color: white;
+          }
+        }
+        span {
+          color: white;
+        }
+        p {
+          color: rgb(180, 180, 180);
+          padding: 0;
+          margin: 0;
+        }
+        .views {
+          z-index: 99;
+          margin-top: 12px;
+          color: rgb(180, 180, 180);
+          font-weight: 600;
+          font-size: 17px;
+        }
+      }
+      #dropdown-crud {
+        display: none;
+        background-color: #3f4553;
+        padding-top: 20px;
+        border-radius: 5px;
+        margin: auto;
+        .crud-buttons {
+          button {
+            padding: 1px 18px;
+            outline: none;
+            border: 1px solid #1473c7;
+            background-color: #1473c7;
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

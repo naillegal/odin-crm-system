@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static "styles/style.css" %}" />
+    <link rel="stylesheet" href="{% static "vendors/bootstrap.min.css" %}" />
+    <title>Authentication Page</title>
+  </head>
+  <body>
+    <section id="bg-gray">
+      <header>
+        <div class="logout">
+          <div class="d-flex justify-content-between w-90">
+            <div>
+              <img src="{% static "assets/person-image.jpg" %}" alt="" />
+              <span>{{ request.user.get_full_name|default:"Qonaq İstifadəçi" }}</span>
+            </div>
+            <div>
+              <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link" style="color: inherit; text-decoration: none;">
+                    <h5>Çıxış</h5>
+                </button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li>
+                <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+                    Tapşırıqlar
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'customer' %}" class="{% if request.resolver_match.url_name == 'customer' %}active{% endif %}">
+                    Müştərilər
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'addcustomer' %}" class="{% if request.resolver_match.url_name == 'addcustomer' %}active{% endif %}">
+                    Əlavə et
+                </a>
+            </li>
+        </ul>
+        </div>
+      </header>
+      <section id="relations-box">
+        <form method="POST" action="{% url 'task' %}">
+          {% csrf_token %}
+          {% for customer in page_obj %}
+                    <div class="relation">
+                        <div class="d-flex justify-content-between cursor-pointer">
+                            <div class="d-flex">
+                                <input type="checkbox"
+                                       id="checkbox{{ customer.id }}"
+                                       name="checked_customers"
+                                       value="{{ customer.id }}"
+                                       {% if customer.feedback_date == today %}checked{% endif %} disabled />
+                                <label for="checkbox{{ customer.id }}" class="simple-checkbox"></label>
+                                <div class="relation-title">
+                                  <a href="tel:{{ customer.contact_number }}" style="text-decoration: none; color: inherit;">
+                                    <span>{{ customer.full_name }} ilə əlaqə saxla</span>
+                                  </a>
+                                    <p>{{ customer.contact_number }}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="calendar">
+                                  <a href="{% url 'customer' %}?customer_id={{ customer.id }}&open=dropdown">
+                                    <span>BAX</span>
+                                  </a>
+                                    <p>{{ customer.feedback_date|date:"d.m.Y" }}
+                                       <i class="fa-solid fa-calendar-days"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                {% endfor %}
+        
+          <div class="pagination">
+            <button class="prev" {% if not page_obj.has_previous %}disabled{% endif %}>
+              <a href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% else %}1{% endif %}">
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </button>
+            <ul>
+              {% for num in page_obj.paginator.page_range %}
+                <li class="{% if page_obj.number == num %}active{% endif %}">
+                  <a href="?page={{ num }}">{{ num }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            <button class="next" {% if not page_obj.has_next %}disabled{% endif %}>
+              <a href="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% else %}{{ page_obj.paginator.num_pages }}{% endif %}">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </button>
+          </div>
+        </form>
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="{% url 'assistprice' %}" class="{% if request.resolver_match.url_name == 'assistprice' %}active{% endif %}">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="{% url 'salescontract' %}" class="{% if request.resolver_match.url_name == 'salescontract' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
+      
+      
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static "scripts/main.js" %}"></script>
+  </body>
+</html>

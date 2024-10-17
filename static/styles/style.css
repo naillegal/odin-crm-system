@@ -1,0 +1,1577 @@
+#bg-gray-center {
+  background-color: #313540;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#bg-gray-center #logo .logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bg-gray-center #logo .logo-box img {
+  width: 35%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#bg-gray-center #info-box {
+  margin-top: 30px;
+  text-align: center;
+}
+#bg-gray-center #info-box h1 {
+  color: #1473c7;
+  font-weight: bold;
+}
+#bg-gray-center #info-box p {
+  color: white;
+}
+#bg-gray-center #form-box form .authinput {
+  width: 70%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+#bg-gray-center #form-box form .authinput::-moz-placeholder {
+  color: white;
+}
+#bg-gray-center #form-box form .authinput::placeholder {
+  color: white;
+}
+#bg-gray-center #form-box form .authinput:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+#bg-gray-center #form-box form .savepass {
+  width: 70%;
+  margin: auto;
+}
+#bg-gray-center #form-box form .savepass label {
+  color: white;
+}
+#bg-gray-center #form-box form .form-btn {
+  padding-top: 25px;
+  width: 60%;
+  margin: auto;
+}
+#bg-gray-center #form-box form .form-btn button {
+  width: 100%;
+  color: white;
+  background-color: #1473c7;
+  outline: none;
+  border: 1px solid #1473c7;
+  border-radius: 3px;
+  padding: 5px 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#bg-gray {
+  background-color: #313540;
+  width: 100%;
+  height: 100vh;
+}
+#bg-gray header {
+  position: sticky;
+  top: 0;
+  background-color: #353b49;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  padding: 2px 0px 20px 0px;
+}
+#bg-gray header .logout .w-90 {
+  padding: 10px 0px;
+  width: 95%;
+  margin: auto;
+  align-items: center;
+}
+#bg-gray header .logout .w-90 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#bg-gray header .logout .w-90 h5 {
+  color: white;
+  cursor: pointer;
+}
+#bg-gray header .logout .w-90 h5 a {
+  text-decoration: none;
+  color: white;
+}
+#bg-gray header .logout .w-90 span {
+  margin-left: 5px;
+  color: white;
+  font-size: 18px;
+}
+#bg-gray header .nav-menu ul {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+#bg-gray header .nav-menu ul li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0px 8px;
+  padding: 4px 18px;
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #c2c5ce;
+}
+#bg-gray header .nav-menu ul .active {
+  color: white;
+  background-color: #1473c7;
+}
+#bg-gray #relations-box {
+  background-color: #313540;
+  overflow-y: auto;
+}
+#bg-gray #relations-box .relation {
+  width: 90%;
+  margin: auto;
+  padding: 5px 0px;
+}
+#bg-gray #relations-box .relation .cursor-pointer {
+  cursor: pointer;
+}
+#bg-gray #relations-box .relation .cursor-pointer input[type=checkbox] {
+  display: none;
+}
+#bg-gray #relations-box .relation .cursor-pointer .simple-checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 15px;
+}
+#bg-gray #relations-box .relation .cursor-pointer input[type=checkbox]:checked + .simple-checkbox {
+  background-color: #1473c7;
+  border: 1px solid #1473c7;
+}
+#bg-gray #relations-box .relation .cursor-pointer .relation-title {
+  color: white;
+  margin-left: 10px;
+}
+#bg-gray #relations-box .relation .cursor-pointer .relation-title span {
+  font-weight: bold;
+}
+#bg-gray #relations-box .relation .cursor-pointer .relation-title p {
+  color: rgb(180, 180, 180);
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar {
+  float: right;
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar a {
+  text-decoration: none;
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar a span {
+  color: #1473c7;
+  font-weight: bold;
+  float: right;
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar p {
+  color: white;
+}
+#bg-gray #relations-box .relation .cursor-pointer .calendar p i {
+  margin-left: 5px;
+}
+#bg-gray #relations-box .relation hr {
+  color: white;
+  margin: 0px;
+}
+#bg-gray #relations-box .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+#bg-gray #relations-box .pagination i {
+  color: white;
+}
+#bg-gray #relations-box .pagination button[disabled] a i {
+  color: gray;
+}
+#bg-gray #relations-box .pagination button:hover {
+  background-color: #063b66;
+}
+#bg-gray #relations-box .pagination ul li.active a {
+  background-color: #063b66;
+}
+#bg-gray #relations-box .pagination button {
+  background-color: #084f8c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+#bg-gray #relations-box .pagination button:hover {
+  background-color: #063b66;
+}
+#bg-gray #relations-box .pagination ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#bg-gray #relations-box .pagination ul li {
+  margin: 0 5px;
+}
+#bg-gray #relations-box .pagination ul li a {
+  display: block;
+  padding: 10px 15px;
+  background-color: #084f8c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#bg-gray #relations-box .pagination ul li a:hover {
+  background-color: #042642;
+}
+#bg-gray footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 99;
+}
+#bg-gray footer .tabs-box {
+  padding: 12px 0px;
+  background-color: #353b49;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+#bg-gray footer .tabs-box .change-tabs {
+  width: 80%;
+  margin: auto;
+}
+#bg-gray footer .tabs-box .change-tabs i {
+  color: rgb(180, 180, 180);
+  font-size: 30px;
+  padding: 5px;
+}
+#bg-gray footer .tabs-box .change-tabs .active {
+  background-color: #1473c7;
+  border-radius: 5px;
+}
+#bg-gray footer .tabs-box .change-tabs .active i {
+  color: white;
+}
+#bg-gray footer .tabs-box .change-tabs .tab {
+  cursor: pointer;
+  padding: 7px;
+}
+
+#customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+}
+#customers .search-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+#customers .search-box form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#customers .search-box form input {
+  width: 90%;
+  padding: 10px 15px;
+  background-color: #3f4553;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #3f4553;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+#customers .search-box form input::-moz-placeholder {
+  color: rgb(180, 180, 180);
+}
+#customers .search-box form input::placeholder {
+  color: rgb(180, 180, 180);
+}
+#customers .search-box .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
+}
+#customers .search-box .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#customers .customer-info-box {
+  background-color: #313540;
+}
+#customers .customer-info-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#customers .customer-info-box .box .clicktodown {
+  cursor: pointer;
+}
+#customers .customer-info-box .box .clicktodown .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#customers .customer-info-box .box .clicktodown .personico i {
+  color: white;
+}
+#customers .customer-info-box .box .clicktodown span {
+  color: white;
+}
+#customers .customer-info-box .box .clicktodown p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#customers .customer-info-box .box .clicktodown .note-it {
+  z-index: 99;
+  margin-top: 12px;
+}
+#customers .customer-info-box .box .clicktodown .note-it a {
+  color: white;
+  text-decoration: none;
+}
+#customers .customer-info-box .box .clicktodown .note-it a button {
+  padding: 0px 12px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#customers .customer-info-box .box .dropdown-feedback {
+  display: none;
+  background-color: #3f4553;
+  padding-top: 20px;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+}
+#customers .customer-info-box .box .dropdown-feedback .w-80 {
+  width: 80%;
+  margin: auto;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab1 {
+  display: block;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab1 .upside-content {
+  color: white;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab1 .feed-content {
+  margin-top: 5px;
+  border: 1px solid rgb(180, 180, 180);
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 {
+  display: none;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form label {
+  color: white;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input,
+#customers .customer-info-box .box .dropdown-feedback .tab2 form select {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input::-moz-placeholder, #customers .customer-info-box .box .dropdown-feedback .tab2 form select::-moz-placeholder {
+  color: white;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input::placeholder,
+#customers .customer-info-box .box .dropdown-feedback .tab2 form select::placeholder {
+  color: white;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input:focus,
+#customers .customer-info-box .box .dropdown-feedback .tab2 form select:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input[type=date] {
+  color: white;
+  background-color: transparent;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form input[type=date]::-webkit-inner-spin-button, #customers .customer-info-box .box .dropdown-feedback .tab2 form input[type=date]::-webkit-clear-button {
+  display: none;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 form select {
+  background-color: #3f4553;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 0px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab2 button:hover {
+  background-color: #105a9c;
+}
+#customers .customer-info-box .box .dropdown-feedback #change-feedtoinfo {
+  margin-top: 40px;
+}
+#customers .customer-info-box .box .dropdown-feedback #change-feedtoinfo .feedtoinfo-box {
+  color: white;
+}
+#customers .customer-info-box .box .dropdown-feedback #change-feedtoinfo .feedtoinfo-box .clickable-tab {
+  background-color: #c2c5ce;
+  width: 48%;
+  padding: 3px 0px;
+  display: flex;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 95% 0%, 5% 0%);
+          clip-path: polygon(0 100%, 100% 100%, 95% 0%, 5% 0%);
+}
+#customers .customer-info-box .box .dropdown-feedback #change-feedtoinfo .feedtoinfo-box .active {
+  color: white;
+  background-color: #1473c7;
+}
+
+#addcustomerheader {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px;
+  background-color: #353b49;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#addcustomerheader a i {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+#addcustomerheader h5 {
+  color: white;
+  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#addcustomerform {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+#addcustomerform form label {
+  color: white;
+}
+#addcustomerform form input,
+#addcustomerform form select {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+#addcustomerform form input::-moz-placeholder, #addcustomerform form select::-moz-placeholder {
+  color: white;
+}
+#addcustomerform form input::placeholder,
+#addcustomerform form select::placeholder {
+  color: white;
+}
+#addcustomerform form input:focus,
+#addcustomerform form select:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+#addcustomerform form input[type=date] {
+  color: white;
+  background-color: transparent;
+}
+#addcustomerform form input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+#addcustomerform form input[type=date]::-webkit-inner-spin-button, #addcustomerform form input[type=date]::-webkit-clear-button {
+  display: none;
+}
+#addcustomerform form select {
+  background-color: #3f4553;
+}
+#addcustomerform form .onelineinputs {
+  display: flex;
+}
+#addcustomerform form .onelineinputs .icon-bg {
+  background-color: #1473c7;
+  width: 35px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  cursor: pointer;
+}
+#addcustomerform form .onelineinputs .icon-bg i {
+  color: white;
+  font-size: 24px;
+}
+#addcustomerform form .onelineinputs .w-50 {
+  width: 50%;
+}
+#addcustomerform form .onelineinputs .w-30 {
+  width: 30%;
+  margin-left: 10px;
+}
+#addcustomerform form .onelineinputs .w-20 {
+  width: 20%;
+  margin-left: 10px;
+}
+#addcustomerform form button {
+  width: 45%;
+  margin-top: 10px;
+  padding: 10px 0px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+#addcustomerform form button:hover {
+  background-color: #105a9c;
+}
+
+#tables {
+  margin-top: 15px;
+  height: 100vh;
+}
+#tables .customer-table .customer-info-box {
+  background-color: #313540;
+}
+#tables .customer-table .customer-info-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#tables .customer-table .customer-info-box .box .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#tables .customer-table .customer-info-box .box .personico i {
+  color: white;
+}
+#tables .customer-table .customer-info-box .box span {
+  color: white;
+}
+#tables .customer-table .customer-info-box .box p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#tables .custom-container {
+  width: 90%;
+  margin: auto;
+}
+#tables .custom-container .boxico {
+  cursor: pointer;
+  background-color: #3f4553;
+  text-align: center;
+  padding: 15px 0px;
+}
+#tables .custom-container .boxico a {
+  text-decoration: none;
+}
+#tables .custom-container .boxico i {
+  color: #1473c7;
+  font-size: 50px;
+}
+#tables .custom-container .boxico h6 {
+  color: white;
+  margin-top: 10px;
+}
+#tables a {
+  text-decoration: none;
+}
+#tables a button {
+  display: inline-block;
+  width: 100%;
+  margin: 15px 0px;
+  padding: 15px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+}
+
+#fullfeedback {
+  margin-top: 15px;
+  height: 100vh;
+}
+#fullfeedback .customer-info-box {
+  background-color: #313540;
+}
+#fullfeedback .customer-info-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#fullfeedback .customer-info-box .box .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#fullfeedback .customer-info-box .box .personico i {
+  color: white;
+}
+#fullfeedback .customer-info-box .box span {
+  color: white;
+}
+#fullfeedback .customer-info-box .box p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#fullfeedback form {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+#fullfeedback form label {
+  color: white;
+}
+#fullfeedback form input,
+#fullfeedback form textarea {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+#fullfeedback form input::-moz-placeholder, #fullfeedback form textarea::-moz-placeholder {
+  color: white;
+}
+#fullfeedback form input::placeholder,
+#fullfeedback form textarea::placeholder {
+  color: white;
+}
+#fullfeedback form input:focus,
+#fullfeedback form textarea:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+#fullfeedback form textarea {
+  resize: vertical;
+}
+#fullfeedback form input[type=date] {
+  color: white;
+  background-color: transparent;
+  position: relative;
+}
+#fullfeedback form input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+#fullfeedback form input[type=date]::-webkit-inner-spin-button, #fullfeedback form input[type=date]::-webkit-clear-button {
+  display: none;
+}
+#fullfeedback form button {
+  width: 30%;
+  margin: 15px 0px;
+  padding: 8px 0px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+#fullfeedback form button:hover {
+  background-color: #105a9c;
+}
+#fullfeedback #char-count {
+  float: right;
+  font-size: 12px;
+  color: white;
+}
+
+#editform {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+#editform form label {
+  color: white;
+}
+#editform form input,
+#editform form select {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+#editform form input::-moz-placeholder, #editform form select::-moz-placeholder {
+  color: white;
+}
+#editform form input::placeholder,
+#editform form select::placeholder {
+  color: white;
+}
+#editform form input:focus,
+#editform form select:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+#editform form input[type=date] {
+  color: white;
+  background-color: transparent;
+}
+#editform form input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+#editform form input[type=date]::-webkit-inner-spin-button, #editform form input[type=date]::-webkit-clear-button {
+  display: none;
+}
+#editform form select {
+  background-color: #3f4553;
+}
+#editform form .onelineinputs {
+  display: flex;
+}
+#editform form .onelineinputs .icon-bg {
+  background-color: #1473c7;
+  width: 35px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+#editform form .onelineinputs .icon-bg i {
+  color: white;
+  font-size: 24px;
+}
+#editform form .onelineinputs .w-70 {
+  width: 70%;
+}
+#editform form .onelineinputs .w-30 {
+  width: 30%;
+  margin-left: 10px;
+}
+#editform form button {
+  width: 45%;
+  margin-top: 10px;
+  padding: 10px 0px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+#editform form button:hover {
+  background-color: #105a9c;
+}
+
+#assist_price_customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+}
+#assist_price_customers .search-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+#assist_price_customers .search-box form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#assist_price_customers .search-box form input {
+  width: 90%;
+  padding: 10px 15px;
+  background-color: #3f4553;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #3f4553;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+#assist_price_customers .search-box form input::-moz-placeholder {
+  color: rgb(180, 180, 180);
+}
+#assist_price_customers .search-box form input::placeholder {
+  color: rgb(180, 180, 180);
+}
+#assist_price_customers .search-box .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
+}
+#assist_price_customers .search-box .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#assist_price_customers .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
+}
+#assist_price_customers .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#assist_price_customers .customer-toggle-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud {
+  cursor: pointer;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico i {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud span {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .views {
+  z-index: 99;
+  margin-top: 12px;
+  color: rgb(180, 180, 180);
+  font-weight: 600;
+  font-size: 17px;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud {
+  display: none;
+  background-color: #3f4553;
+  padding-top: 20px;
+  border-radius: 5px;
+  margin: auto;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud .crud-buttons button {
+  padding: 1px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+#logoandtitle {
+  padding: 30px 0px;
+}
+#logoandtitle img {
+  width: 40%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#logoandtitle .priceassist {
+  font-weight: 900;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+#assistprice-customerinfo {
+  width: 95%;
+  margin: auto;
+  background-color: #edeeed;
+  padding: 40px 0px;
+}
+#assistprice-customerinfo .w90 {
+  width: 90%;
+  margin: auto;
+}
+#assistprice-customerinfo h6 {
+  font-size: 9px;
+  font-weight: 900;
+}
+#assistprice-customerinfo h2 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+#assistprice-product-title {
+  padding-top: 40px;
+  width: 95%;
+  margin: auto;
+}
+#assistprice-product-title .title-column {
+  color: white;
+  background-color: #084f8c;
+  padding: 5px 0px;
+}
+#assistprice-product-title .title-column h6 {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+}
+#assistprice-product-title .title-column .w-15 {
+  width: 15%;
+  margin: auto;
+}
+#assistprice-product-title .title-column .w-40 {
+  width: 40%;
+  margin: auto;
+}
+
+#assistprice-product-info {
+  width: 95%;
+  margin: auto;
+}
+#assistprice-product-info .title-column {
+  padding: 18px 0px;
+}
+#assistprice-product-info .title-column h6 {
+  font-size: 10px;
+  text-align: center;
+}
+#assistprice-product-info .title-column a {
+  text-decoration: none;
+  color: white;
+}
+#assistprice-product-info .title-column a .bax {
+  background-color: #084f8c;
+  padding: 8px 5px;
+  width: 100%;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+}
+#assistprice-product-info .title-column .w-15 {
+  width: 15%;
+  margin: auto;
+}
+#assistprice-product-info .title-column .w-40 {
+  width: 40%;
+  margin: auto;
+}
+
+#delivery-configure {
+  background-color: #edeeed;
+  height: 40px;
+}
+#delivery-configure h6 {
+  padding: 0px 25px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.w90 {
+  width: 95%;
+  margin: auto;
+}
+.w90 #sub-total-price {
+  background-color: #084f8c;
+  height: 45px;
+  width: 75%;
+  float: right;
+  margin: auto;
+}
+.w90 #sub-total-price h6 {
+  padding: 0px 15px;
+  font-weight: 900;
+  font-size: 15px;
+  color: white;
+}
+@media (max-width: 400px) {
+  .w90 #sub-total-price h6 {
+    font-size: 15px !important;
+    margin-top: 0px !important;
+  }
+}
+
+#pdf {
+  padding: 100px 0px;
+}
+#pdf button {
+  outline: none;
+  border: 1px solid #084f8c;
+  background-color: #084f8c;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
+
+#assist_price_customers {
+  overflow: auto;
+  background-color: #313540;
+  height: calc(100vh - 20px);
+  overflow-y: auto;
+}
+#assist_price_customers .search-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+#assist_price_customers .search-box form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#assist_price_customers .search-box form input {
+  width: 90%;
+  padding: 10px 15px;
+  background-color: #3f4553;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #3f4553;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+#assist_price_customers .search-box form input::-moz-placeholder {
+  color: rgb(180, 180, 180);
+}
+#assist_price_customers .search-box form input::placeholder {
+  color: rgb(180, 180, 180);
+}
+#assist_price_customers .search-box .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
+}
+#assist_price_customers .search-box .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#assist_price_customers .btn-box {
+  position: absolute;
+  top: 35%;
+  right: 8%;
+  z-index: 2;
+}
+#assist_price_customers .btn-box button {
+  padding: 0px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+}
+#assist_price_customers .customer-toggle-box .box {
+  width: 90%;
+  background-color: #3f4553;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: auto auto 15px auto;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud {
+  cursor: pointer;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .personico i {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud span {
+  color: white;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud p {
+  color: rgb(180, 180, 180);
+  padding: 0;
+  margin: 0;
+}
+#assist_price_customers .customer-toggle-box .box .clicktodowncrud .views {
+  z-index: 99;
+  margin-top: 12px;
+  color: rgb(180, 180, 180);
+  font-weight: 600;
+  font-size: 17px;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud {
+  display: none;
+  background-color: #3f4553;
+  padding-top: 20px;
+  border-radius: 5px;
+  margin: auto;
+}
+#assist_price_customers .customer-toggle-box .box #dropdown-crud .crud-buttons button {
+  padding: 1px 18px;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+#sales-contract-upside {
+  background-color: #fff;
+  padding: 20px 0px;
+}
+#sales-contract-upside h5 {
+  font-size: 12px;
+  text-align: center;
+}
+#sales-contract-upside h6 {
+  text-align: center;
+  font-size: 11px;
+}
+
+#sales-form {
+  padding: 20px 0px;
+  background-color: #fff;
+}
+#sales-form h2 {
+  color: #b94244;
+  text-align: center;
+  font-weight: 900;
+}
+#sales-form p {
+  float: right;
+  margin-right: 20px;
+}
+#sales-form form {
+  width: 95%;
+  margin: auto;
+  padding: 10px 0px;
+  font-family: Arial, sans-serif;
+}
+#sales-form form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#sales-form form table td {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+}
+#sales-form form table td label {
+  font-weight: bold;
+  font-size: 8px;
+  vertical-align: middle;
+  padding: 0px 2px;
+}
+#sales-form form table td input {
+  outline: none;
+  font-size: 11px;
+  background-color: #fff;
+  color: black;
+}
+#sales-form form table td input::-moz-placeholder {
+  color: black;
+}
+#sales-form form table td input::placeholder {
+  color: black;
+}
+#sales-form form table td input[type=radio] {
+  transform: scale(0.8);
+  margin-left: 10px;
+  vertical-align: middle;
+}
+#sales-form form table td input[type=radio]:focus {
+  box-shadow: 0 0 0;
+}
+#sales-form form table td input[type=text],
+#sales-form form table td input[type=tel] {
+  width: 95%;
+  padding: 0px 2px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#sales-form form table td input[type=checkbox] {
+  margin-right: 5px;
+}
+
+#material-info {
+  background-color: #fff;
+}
+#material-info .w95 {
+  width: 95%;
+  margin: auto;
+}
+#material-info .w95 h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+#material-info .w95 ul {
+  list-style: none;
+}
+#material-info .w95 ul li {
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+#material-info .w95 ul li span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+#material-info .w95 h6 {
+  font-size: 11px;
+}
+#material-info .w95 .padding-box {
+  padding-top: 18px;
+}
+
+#signatures {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+#signatures .w-95 {
+  width: 95%;
+  margin: auto;
+}
+#signatures .w-95 label {
+  font-size: 10px;
+  margin-top: 1px;
+}
+#signatures .w-95 input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: black;
+  outline: none;
+  font-size: 10px;
+  padding: 0px 3px;
+  width: 150px;
+}
+#signatures .w-95 input::-moz-placeholder {
+  color: black;
+}
+#signatures .w-95 input::placeholder {
+  color: black;
+}
+#signatures .w-95 h6 {
+  font-size: 14px;
+  margin-left: 25px;
+}
+#signatures .w-95 h6 span {
+  font-size: 12px;
+  color: rgb(88, 88, 88);
+}
+#signatures .w-95 .rel {
+  position: relative;
+}
+#signatures .w-95 .rel .abs {
+  position: absolute;
+  bottom: 180%;
+  left: 45%;
+}
+#signatures .w-95 .rel .abs img {
+  width: 40%;
+  margin-left: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#sales-pdf {
+  padding: 40px 0px;
+}
+#sales-pdf button {
+  outline: none;
+  border: 1px solid #b94244;
+  background-color: #b94244;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
+
+.fullscreen {
+  height: 100vh;
+  overflow: auto;
+}
+.fullscreen #addcustomerheader {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px;
+  background-color: #353b49;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fullscreen #addcustomerheader a i {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.fullscreen #addcustomerheader h5 {
+  color: white;
+  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fullscreen #addcustomerform {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+.fullscreen #addcustomerform form label {
+  color: white;
+  font-size: 14px;
+}
+.fullscreen #addcustomerform form input,
+.fullscreen #addcustomerform form select,
+.fullscreen #addcustomerform form textarea {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  outline: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.fullscreen #addcustomerform form input::-moz-placeholder, .fullscreen #addcustomerform form select::-moz-placeholder, .fullscreen #addcustomerform form textarea::-moz-placeholder {
+  color: white;
+}
+.fullscreen #addcustomerform form input::placeholder,
+.fullscreen #addcustomerform form select::placeholder,
+.fullscreen #addcustomerform form textarea::placeholder {
+  color: white;
+}
+.fullscreen #addcustomerform form input:focus,
+.fullscreen #addcustomerform form select:focus,
+.fullscreen #addcustomerform form textarea:focus {
+  border-color: #1473c7;
+  box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+}
+.fullscreen #addcustomerform form input[type=date] {
+  color: white;
+  background-color: transparent;
+}
+.fullscreen #addcustomerform form input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+.fullscreen #addcustomerform form input[type=date]::-webkit-inner-spin-button, .fullscreen #addcustomerform form input[type=date]::-webkit-clear-button {
+  display: none;
+}
+.fullscreen #addcustomerform form select {
+  background-color: #3f4553;
+}
+.fullscreen #addcustomerform form .onelineinputs {
+  display: flex;
+}
+.fullscreen #addcustomerform form .onelineinputs .icon-bg {
+  background-color: #1473c7;
+  width: 35px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  cursor: pointer;
+}
+.fullscreen #addcustomerform form .onelineinputs .icon-bg i {
+  color: white;
+  font-size: 24px;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-50 {
+  width: 50%;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-40 {
+  width: 40%;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-45 {
+  width: 45%;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-35 {
+  width: 35%;
+  margin-left: 10px;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 {
+  width: 30%;
+  margin-left: 10px;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-20 {
+  width: 20%;
+  margin-left: 10px;
+}
+.fullscreen #addcustomerform form button {
+  width: 45%;
+  margin-top: 10px;
+  padding: 10px 0px;
+  font-weight: 600;
+  outline: none;
+  border: 1px solid #1473c7;
+  background-color: #1473c7;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.fullscreen #addcustomerform form button:hover {
+  background-color: #105a9c;
+}
+.fullscreen #addcustomerform .checkboxdiv {
+  padding: 10px 0px;
+}
+.fullscreen #addcustomerform .checkboxdiv input[type=checkbox] {
+  display: none;
+}
+.fullscreen #addcustomerform .checkboxdiv .simple-checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 2.5px;
+}
+.fullscreen #addcustomerform .checkboxdiv input[type=checkbox]:checked + .simple-checkbox {
+  background-color: #1473c7;
+  border: 1px solid #1473c7;
+}
+.fullscreen #addcustomerform .checkboxdiv .relation-title {
+  color: white;
+  margin-left: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1473c7;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1473c7 #2e2e2e;
+  background-color: #313540;
+}/*# sourceMappingURL=style.css.map */

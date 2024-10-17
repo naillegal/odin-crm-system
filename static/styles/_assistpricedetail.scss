@@ -1,0 +1,129 @@
+#logoandtitle {
+  padding: 30px 0px;
+  img {
+    width: 40%;
+    object-fit: cover;
+  }
+  .priceassist {
+    font-weight: 900;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+}
+
+#assistprice-customerinfo {
+  width: 95%;
+  margin: auto;
+  background-color: #edeeed;
+  padding: 40px 0px;
+  .w90 {
+    width: 90%;
+    margin: auto;
+  }
+  h6 {
+    font-size: 9px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 900;
+  }
+}
+
+#assistprice-product-title {
+  padding-top: 40px;
+  width: 95%;
+  margin: auto;
+  .title-column {
+    color: white;
+    background-color: #084f8c;
+    padding: 5px 0px;
+    h6 {
+      font-size: 10px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .w-15 {
+      width: 15%;
+      margin: auto;
+    }
+    .w-40 {
+      width: 40%;
+      margin: auto;
+    }
+  }
+}
+#assistprice-product-info {
+  width: 95%;
+  margin: auto;
+  .title-column {
+    padding: 18px 0px;
+    h6 {
+      font-size: 10px;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      .bax {
+        background-color: #084f8c;
+        padding: 8px 5px;
+        width: 100%;
+        border-radius: 5px;
+        margin: auto;
+        cursor: pointer;
+      }
+    }
+    .w-15 {
+      width: 15%;
+      margin: auto;
+    }
+    .w-40 {
+      width: 40%;
+      margin: auto;
+    }
+  }
+}
+#delivery-configure {
+  background-color: #edeeed;
+  height: 40px;
+  h6 {
+    padding: 0px 25px;
+    font-weight: 900;
+    font-size: 14px;
+  }
+}
+
+.w90{
+  width: 95%;
+  margin: auto;
+  #sub-total-price {
+    background-color: #084f8c;
+    height: 45px;
+    width: 75%;
+    float: right;
+    margin: auto;
+    h6 {
+      padding: 0px 15px;
+      font-weight: 900;
+      font-size: 15px;
+      color: white;
+      @media (max-width: 400px) {
+        font-size: 15px !important;
+        margin-top: 0px !important;
+      }
+    }
+  }
+}
+
+#pdf {
+  padding: 100px 0px;
+  button {
+    outline: none;
+    border: 1px solid #084f8c;
+    background-color: #084f8c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+  }
+}

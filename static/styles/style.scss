@@ -1,0 +1,39 @@
+@import "index";
+@import "task";
+@import "customer";
+@import "addcustomer";
+@import "customerinfo";
+@import "feedback";
+@import "edit";
+@import "assistprice";
+@import "assistpricedetail";
+@import "salescontract";
+@import "salescontractdetail";
+@import "adminpriceandsales";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1473c7;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1473c7 #2e2e2e;
+  background-color: #313540;
+}
+

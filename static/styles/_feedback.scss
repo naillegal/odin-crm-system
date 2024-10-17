@@ -1,0 +1,109 @@
+#fullfeedback {
+  margin-top: 15px;
+  height: 100vh;
+  .customer-info-box {
+    background-color: #313540;
+    .box {
+      width: 90%;
+      background-color: #3f4553;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: auto auto 15px auto;
+      .personico {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+        margin-right: 10px;
+        i {
+          color: white;
+        }
+      }
+      span {
+        color: white;
+      }
+      p {
+        color: rgb(180, 180, 180);
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  form {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    label {
+      color: white;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin: 8px 0px;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 3px;
+      outline: none;
+      color: white;
+      transition: 0.2s ease-in-out;
+
+      &::placeholder {
+        color: white;
+      }
+
+      &:focus {
+        border-color: #1473c7;
+        box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="date"] {
+      color: white;
+      background-color: transparent;
+      position: relative;
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+      }
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-clear-button {
+        display: none;
+      }
+    }
+
+    button {
+      width: 30%;
+      margin: 15px 0px;
+      padding: 8px 0px;
+      font-weight: 600;
+      outline: none;
+      border: 1px solid #1473c7;
+      background-color: #1473c7;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #105a9c;
+      }
+    }
+  }
+
+  #char-count {
+    float: right;
+    font-size: 12px;
+    color: white;
+  }
+}

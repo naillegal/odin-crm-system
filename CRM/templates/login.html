@@ -1,0 +1,72 @@
+{% load static %} {% load form_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
+    <title>Authentication Page</title>
+  </head>
+  <body style="overflow: hidden">
+    <section id="bg-gray-center">
+      <section id="logo">
+        <div class="logo-box">
+          <img src="{% static 'assets/odin-logo.png' %}" alt="Odin Logo" />
+        </div>
+      </section>
+      <section id="info-box">
+        <h1>Giriş</h1>
+        <p>
+          Odin Project Engineering CRM sistemindən<br />istifadə üçün giriş
+          edin.
+        </p>
+      </section>
+
+      <!-- Səhv mesajlarını burada göstərəcəyik -->
+      {% if messages %}
+      <div class="error-messages">
+        {% for message in messages %}
+        <p style="width: 70%; margin: auto" class="alert alert-danger">
+          {{ message }}
+        </p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <section id="form-box">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="text-center">
+            <input
+              class="authinput"
+              type="text"
+              name="username"
+              placeholder="İstifadəçi adı"
+              required
+            /><br />
+            <input
+              class="authinput"
+              type="password"
+              name="password"
+              placeholder="Şifrə"
+              required
+            />
+          </div>
+          <div class="savepass">
+            <input type="checkbox" name="remember_me" id="remember_me" />
+            <label for="remember_me">Şifrəni yadda saxla</label>
+          </div>
+          <div class="form-btn">
+            <button type="submit">Daxil ol</button>
+          </div>
+        </form>
+      </section>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+  </body>
+</html>

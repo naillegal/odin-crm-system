@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
+    <title>Authentication Page</title>
+  </head>
+  <body>
+    <section id="bg-gray">
+      <header>
+        <div class="logout">
+          <div class="d-flex justify-content-between w-90">
+            <div>
+              <img src="{% static 'assets/person-image.jpg' %}" alt="" />
+              <span>{{ request.user.get_full_name|default:"Qonaq İstifadəçi" }}</span>
+            </div>
+            <div>
+              <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link" style="color: inherit; text-decoration: none;">
+                    <h5>Çıxış</h5>
+                </button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li>
+                <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+                    Tapşırıqlar
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'customer' %}" class="{% if request.resolver_match.url_name == 'customer' %}active{% endif %}">
+                    Müştərilər
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'addcustomer' %}" class="{% if request.resolver_match.url_name == 'addcustomer' %}active{% endif %}">
+                    Əlavə et
+                </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <section id="customers">
+        <div class="search-box">
+          <form method="GET" action="{% url 'customer' %}">
+            <input 
+              type="text" 
+              name="q" 
+              placeholder="Axtarış" 
+              value="{{ request.GET.q|default_if_none:'' }}" 
+            />
+            <div class="btn-box">
+              <button type="submit">Axtar</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="customer-info-box">
+          {% for customer in customer_data %}
+          <div class="box" data-customer-id="{{ customer.customer.id }}">
+            <div class="clicktodown d-flex justify-content-between">
+              <div class="d-flex">
+                <!-- Müştərinin vəziyyətinə görə rəng təyin edirik -->
+                <div style="background-color: {{ customer.color }}" class="personico">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <div>
+                  <span>{{ customer.customer.full_name }}</span>
+                  <p>Müştəri {{ customer.customer.customer_code }}</p>
+                </div>
+              </div>
+              <div>
+                <!-- Qeyd et düyməsi -->
+                <div class="note-it">
+                  <a href="{% url 'customerinfo' customer.customer.id %}">
+                    <button>Qeyd et</button>
+                </a>
+                </div>
+              </div>
+            </div>
+
+            <section id="dropdown-feedback-{{ customer.customer.id }}" class="dropdown-feedback" style="display: none;">
+              <div class="tab1 w-80">
+                <div class="d-flex justify-content-between upside-content">
+                  <div>Qeyd</div>
+                  <div>{{ customer.customer.note_date|date:"d-F-Y / H:i" }}</div>
+                </div>
+                <div>
+                  <div class="feed-content">
+                    {% if customer.customer.feedback_note %}
+                      {{ customer.customer.feedback_note }}
+                    {% else %}
+                      Qeyd yoxdur
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab2 w-80">
+                <form action="">
+                  <div>
+                    <label>Ad, Soyad</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.full_name }}" disabled />
+                  </div>
+                  <div>
+                    <label>Əlaqə nömrəsi</label>
+                    <br />
+                    <input type="phone" value="{{ customer.customer.contact_number }}" disabled />
+                  </div>
+                  <div>
+                    <label>İlkin qiymət təklifi</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.initial_price_offer }}" disabled />
+                  </div>
+                  <div>
+                    <label>Maraqlandığı məhsullar</label>
+                    <select id="product" name="product" multiple>
+                      {% for product in customer.customer.products.all %}
+                      <option value="{{ product.id }}">{{ product.title }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ünvan</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.address }}" disabled />
+                  </div>
+                  <div>
+                    <label>Qeyd tarixi</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.note_date|date:"d-F-Y / H:i" }}" disabled />
+                  </div>
+                  <div>
+                    <label>Növbəti geri dönüş tarixi</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.feedback_date|date:"d-F-Y" }}" disabled />
+                  </div>
+                  <div>
+                    <label>Müraciət vasitəsi</label>
+                    <br />
+                    <input type="text" value="{{ customer.customer.inquiry_method }}" disabled />
+                  </div>
+                  <!-- Qiymət Təklifi və Satış Sözləşməsi düymələri -->
+                  
+                </form>
+                {% if customer.price_offers.exists %}
+                  <a href="{% url 'assistpricedetail' customer.price_offers.first.id %}">
+                    <button>QİYMƏT TƏKLİFİ</button>
+                  </a>
+                  {% endif %}
+                  {% if customer.sales_contracts.exists %}
+                  <a href="{% url 'salescontractdetail' customer.sales_contracts.first.id %}">
+                    <button style="background-color: #b94244; border: 1px solid #b94244;">SATIŞ SÖZLƏŞMƏSİ</button>
+                  </a>
+                  {% endif %}
+              </div>
+              <section id="change-feedtoinfo">
+                <div class="feedtoinfo-box d-flex justify-content-between">
+                  <div class="clickable-tab feed active">GERİ DÖNÜŞLƏR</div>
+                  <div class="clickable-tab info">MƏLUMATLAR</div>
+                </div>
+              </section>
+            </section>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="{% url 'assistprice' %}" class="{% if request.resolver_match.url_name == 'assistprice' %}active{% endif %}">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="{% url 'salescontract' %}" class="{% if request.resolver_match.url_name == 'salescontract' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
+      
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+  </body>
+</html>

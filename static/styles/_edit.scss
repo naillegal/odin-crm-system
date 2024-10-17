@@ -1,0 +1,97 @@
+#editform {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+  form {
+    label {
+      color: white;
+    }
+
+    input,
+    select {
+      width: 100%;
+      margin: 8px 0px;
+      padding: 10px;
+      background-color: transparent;
+      border: 1px solid gray;
+      border-radius: 3px;
+      outline: none;
+      color: white;
+      transition: 0.2s ease-in-out;
+
+      &::placeholder {
+        color: white;
+      }
+
+      &:focus {
+        border-color: #1473c7;
+        box-shadow: 0 0 5px rgba(20, 115, 199, 0.7);
+      }
+    }
+
+    input[type="date"] {
+      color: white;
+      background-color: transparent;
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(1); 
+        cursor: pointer;
+      }
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-clear-button {
+        display: none;
+      }
+    }
+
+    select {
+      background-color: #3f4553;
+    }
+
+    .onelineinputs {
+      display: flex;
+
+      .icon-bg {
+        background-color: #1473c7;
+        width: 35px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 32px;
+
+        i {
+          color: white;
+          font-size: 24px;
+        }
+      }
+
+      .w-70 {
+        width: 70%;
+      }
+
+      .w-30 {
+        width: 30%;
+        margin-left: 10px;
+      }
+    }
+
+    button {
+      width: 45%;
+      margin-top: 10px;
+      padding: 10px 0px;
+      font-weight: 600;
+      outline: none;
+      border: 1px solid #1473c7;
+      background-color: #1473c7;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #105a9c;
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
+    <title>Müştəri məlumatlarını redaktə et</title>
+  </head>
+  <body>
+    <section id="bg-gray">
+      <section id="addcustomerheader">
+        <div>
+          <a href="{% url 'customerinfo' customer.id %}">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <h5>Müştəri məlumatlarını redaktə et</h5>
+        </div>
+      </section>
+
+      <section id="addcustomerform">
+        <form action="{% url 'edit_customer' customer.id %}" method="post">
+          {% csrf_token %}
+          <div>
+            <label for="">Ad, Soyad</label>
+            <input type="text" name="full_name" value="{{ customer.full_name }}" required />
+          </div>
+
+          <div>
+            <label for="">Əlaqə nömrəsi</label>
+            <input type="phone" name="contact_number" value="{{ customer.contact_number }}" required />
+          </div>
+
+          <div>
+            <label for="">İlkin qiymət təklifi</label>
+            <input type="text" name="initial_price_offer" value="{{ customer.initial_price_offer }}" />
+          </div>
+
+          <div id="clone-wrapper">
+            {% for product in customer_products %}
+              <div class="clone">
+                <div>
+                  <label for="">Maraqlandığı məhsul</label>
+                  <select name="products[]">
+                    {% for p in products %}
+                      <option value="{{ p.id }}" {% if p.id == product.products.id %}selected{% endif %}>
+                        {{ p.title }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="d-flex onelineinputs">
+                  <div class="w-50">
+                    <label for="">Xüsusiyyətlər</label>
+                    <select style="height:70px;" name="features_{{ forloop.counter0 }}[]" multiple>
+                      {% for feature in features %}
+                        <option value="{{ feature.id }}"
+                          {% if feature in product.features.all %}selected{% endif %}>
+                          {{ feature.title }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="w-30">
+                    <label for="">Ölçü</label>
+                    <input type="text" name="size[]" value="{{ product.size }}" />
+                  </div>
+
+                  <div class="icon-bg w-20">
+                    <i class="fa-solid {% if forloop.first %}fa-plus{% else %}fa-trash{% endif %}"></i>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div>
+            <label for="">Müraciət vasitəsi</label>
+            <input type="text" name="inquiry_method" value="{{ customer.inquiry_method }}" />
+          </div>
+
+          <div>
+            <label for="">Ünvan</label>
+            <input type="text" name="address" value="{{ customer.address }}" />
+          </div>
+
+          <div>
+            <label for="">Geri dönüş tarixi</label>
+            <input type="date" name="feedback_date" value="{{ customer.feedback_date|date:'Y-m-d' }}" />
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <button type="submit">Təsdiq et</button>
+          </div>
+        </form>
+      </section>
+
+      <footer>
+        <div class="tabs-box">
+          <div class="change-tabs d-flex justify-content-between">
+            <a href="{% url 'task' %}" class="{% if request.resolver_match.url_name == 'task' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+            </a>
+            <a href="{% url 'assistprice' %}" class="{% if request.resolver_match.url_name == 'assistprice' %}active{% endif %}">
+              <div class="tab">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+            </a>
+            <a href="{% url 'salescontract' %}" class="{% if request.resolver_match.url_name == 'salescontract' %}active{% endif %}">
+              <div class="tab">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script src="{% static 'scripts/addcustomer.js' %}"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+  </body>
+</html>
