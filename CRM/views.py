@@ -9,38 +9,38 @@ from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.db.models import Q
+from django.contrib.auth import login
 # İndex view, loginsiz giriş üçün açıqdır
 
 
 def index(request):
     return render(request, 'index.html')
 
-# Custom login view, burada remember me funksionallığı əlavə edilib
 
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
 
-    def form_invalid(self, form):
-        # Səhv olarsa mesaj göstər
-        messages.error(
-            self.request, "İstifadəçi adı və ya şifrə səhvdir. Zəhmət olmasa yenidən cəhd edin.")
-        return super().form_invalid(form)
-
     def form_valid(self, form):
-        # "remember me" checkbox yoxlaması
-        remember_me = self.request.POST.get('remember_me', None)
+        remember_me = self.request.POST.get('remember_me')
 
-        # Əgər "remember me" işarələnibsə, sessiyanın vaxtını 30 gün et
+        # İstifadəçini login etmək
+        user = form.get_user()
+        login(self.request, user)
+
+        # Sessiyanın müddətini təyin edirik
         if remember_me:
             self.request.session.set_expiry(2592000)  # 30 gün
         else:
-            # Brauzer bağlananda sessiya silinsin
-            self.request.session.set_expiry(0)
+            self.request.session.set_expiry(0)  # Brauzer bağlananda silinir
 
-        return super().form_valid(form)
+        # Login sonrası task səhifəsinə yönləndiririk
+        return redirect('task')
 
-# Task view, yalnız login olan istifadəçilər üçün
+    def form_invalid(self, form):
+        # Login uğursuz olarsa mesaj göstəririk
+        messages.error(self.request, "İstifadəçi adı və ya şifrə səhvdir.")
+        return super().form_invalid(form)
 
 
 @login_required

@@ -144,10 +144,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-LOGIN_REDIRECT_URL = '/task/'
-
-LOGOUT_REDIRECT_URL = '/'
-
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Brauzer bağlananda sessiya qalacaq
-SESSION_COOKIE_AGE = 1209600  # 2 həftəlik sessiya müddəti (default)
+SESSION_COOKIE_AGE = 1209600  # 2 həftəlik sessiya müddəti
+SESSION_SAVE_EVERY_REQUEST = True  # Hər istəkdə sessiyanı yeniləyir
+LOGIN_URL = 'login'  # Login olmamış istifadəçilər üçün yönləndirmə
+LOGIN_REDIRECT_URL = 'task'  # Login sonrası yönləndirmə
+LOGOUT_REDIRECT_URL = 'login'  # Çıxış sonrası yönləndirmə
+SESSION_COOKIE_SECURE = False  # HTTPS tələb etməsin (localda işləyirik)
