@@ -46,27 +46,27 @@ class CustomLoginView(LoginView):
 @login_required
 def task(request):
     today = timezone.now().date()
-    # Get customers with feedback_note and feedback_date today or in the future
+
+    # feedback_note-u olan və bugünkü/gələcək tarixdə feedback_date-i olan müştəriləri seçirik
     customers_list = Customer.objects.filter(
-        feedback_note__isnull=False
+        feedback_note__isnull=False,  # feedback_note boş olmayanlar
+        feedback_note__gt='',  # Silinmiş qeydləri də istisna edir
     ).filter(
-        Q(feedback_date__isnull=True) | Q(feedback_date__gte=today)
+        Q(feedback_date__isnull=True) | Q(feedback_date__gte=today)  # Geri dönüş tarixi uyğun olanlar
     )
 
-    # Pagination - Show 10 customers per page
+    # Sayfalandırma - hər səhifədə 10 müştəri
     paginator = Paginator(customers_list, 10)
     page_number = request.GET.get('page')
 
     try:
         page_obj = paginator.get_page(page_number)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        page_obj = paginator.get_page(1)
+        page_obj = paginator.get_page(1)  # İlk səhifə
     except EmptyPage:
-        # If page is out of range, deliver last page of results.
-        page_obj = paginator.get_page(paginator.num_pages)
+        page_obj = paginator.get_page(paginator.num_pages)  # Son səhifə
 
-    # Handle POST request to update checked customers
+    # POST istəklərinin idarəsi
     if request.method == 'POST':
         checked_customers = request.POST.getlist('checked_customers')
         Customer.objects.filter(id__in=checked_customers).update(feedback_checked=True)

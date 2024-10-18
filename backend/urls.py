@@ -22,7 +22,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path(getenv('ADMIN_URL', 'admin/'), admin.site.urls),
+    path(getenv('ADMIN_URL'), admin.site.urls),
     path('', include('CRM.urls')),
 ]
 
