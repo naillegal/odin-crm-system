@@ -130,7 +130,7 @@
                   </div>
                   <div>
                     <label>Maraqlandığı məhsullar</label>
-                    <select id="product" name="product" multiple>
+                    <select id="product" name="product" multiple disabled>
                       {% for product in customer.customer.products.all %}
                       <option value="{{ product.id }}">{{ product.title }}</option>
                       {% endfor %}
@@ -142,9 +142,9 @@
                     <input type="text" value="{{ customer.customer.address }}" disabled />
                   </div>
                   <div>
-                    <label>Qeyd tarixi</label>
+                    <label>Qeydiyyat tarixi</label>
                     <br />
-                    <input type="text" value="{{ customer.customer.note_date|date:"d-F-Y / H:i" }}" disabled />
+                    <input type="text" value="{{ customer.customer.created_at|date:"d-F-Y / H:i" }}" disabled />
                   </div>
                   <div>
                     <label>Növbəti geri dönüş tarixi</label>

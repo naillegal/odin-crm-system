@@ -100,6 +100,7 @@ class Customer(models.Model):
         super().save(*args, **kwargs)
 
 
+
 class PriceOffer(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name="Müştəri", related_name="price_offers")  # Müştəri ilə əlaqə
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaradılma tarixi")  # Yaradılma tarixi (avtomatik doldurulur)

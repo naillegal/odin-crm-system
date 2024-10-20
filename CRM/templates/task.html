@@ -61,14 +61,14 @@
         <form method="POST" action="{% url 'task' %}">
           {% csrf_token %}
           {% for customer in page_obj %}
-    <div class="relation">
+        <div class="relation">
         <div class="d-flex justify-content-between cursor-pointer">
             <div class="d-flex">
                 <input type="checkbox"
                        id="checkbox{{ customer.id }}"
                        name="checked_customers"
                        value="{{ customer.id }}"
-                       {% if customer.feedback_date == today %}checked{% endif %} />
+                       {% if customer.feedback_date == today %}checked{% endif %} disabled/>
                 <label for="checkbox{{ customer.id }}" class="simple-checkbox"></label>
                 <div class="relation-title">
                     <a href="tel:{{ customer.contact_number }}" style="text-decoration: none; color: inherit;">
@@ -89,8 +89,8 @@
             </div>
         </div>
         <hr />
-    </div>
-{% endfor %}
+        </div>
+          {% endfor %}
         
           <div class="pagination">
             <button class="prev" {% if not page_obj.has_previous %}disabled{% endif %}>
