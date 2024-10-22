@@ -6,19 +6,23 @@ class LoginRequiredMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Login olmadan giriş icazəsi olan URL-lərin başlanğıcı
+        # İcazə verilən URL-lərin başlanğıcı
         allowed_prefixes = [
-            reverse('index'),
-            reverse('login'),
+            reverse('index'),   # index səhifəsi
+            reverse('login'),   # login səhifəsi
             '/salescontractdetail/',  
             '/assistpricedetail/',
         ]
 
-        # İstifadəçi login olmadan icazəsiz səhifəyə daxil olursa
+        # İstifadəçi login olubsa və əsas səhifəyə (/ və ya /login/) daxil olursa
+        if request.user.is_authenticated and request.path in [reverse('index'), reverse('login')]:
+            return redirect('task')  # İstifadəçini task səhifəsinə yönləndir
+
+        # Əgər istifadəçi login olmadan qadağan olunmuş səhifəyə daxil olursa
         if not request.user.is_authenticated and not any(
             request.path.startswith(prefix) for prefix in allowed_prefixes
         ):
-            return redirect('login')
+            return redirect('login')  # Login səhifəsinə yönləndir
 
         response = self.get_response(request)
         return response
