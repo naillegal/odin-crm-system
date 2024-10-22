@@ -30,8 +30,8 @@ class PriceOfferProductInline(admin.TabularInline):
 # Customer admin
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'contact_number', 'initial_price_offer', 'inquiry_method', 'customer_code', 'created_at')
-    list_filter = ('created_at', 'inquiry_method')
+    list_display = ('full_name', 'contact_number', 'customer_code', 'created_at')
+    list_filter = ('created_at', 'full_name')
     search_fields = ('full_name', 'contact_number', 'customer_code')
     readonly_fields = ('created_at', 'customer_code')
 

@@ -1,9 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
-from django.utils.timezone import now
 
-# Feature (Xüsusiyyət) modeli
+
 class Feature(models.Model):
     title = models.CharField(max_length=255, verbose_name="Xüsusiyyətin adı")
 
@@ -16,7 +15,8 @@ class Feature(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name="Məhsulun adı")
-
+    description = models.TextField(verbose_name="Məhsulun açıqlaması", blank=True, null=True)
+    
     def __str__(self):
         return self.title
 
@@ -64,24 +64,31 @@ class Customer(models.Model):
     products = models.ManyToManyField('Product', through='CustomerProduct', verbose_name="Maraqlandığı məhsullar")
     inquiry_method = models.CharField(max_length=255, verbose_name="Müraciət vasitəsi", blank=True, null=True)
     address = models.TextField(verbose_name="Ünvan", blank=True, null=True)
-    feedback_note = models.TextField(verbose_name="Geri dönüş qeydi", blank=True, null=True)
-    note_date = models.DateTimeField(verbose_name="Qeyd tarixi", blank=True, null=True)
+    feedback_note = models.JSONField(default=list, verbose_name="Qeydlər və tarixlər", blank=True, null=True)
     feedback_date = models.DateField(verbose_name="Geri dönüş tarixi", blank=True, null=True)
-    feedback_checked = models.BooleanField(default=False, verbose_name="Geri dönüş yoxlanılması")  
+    feedback_checked = models.BooleanField(default=False, verbose_name="Geri dönüş yoxlanılması")
+    feedback_checked_time = models.DateTimeField(blank=True, null=True, verbose_name="Yoxlanma vaxtı")  
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaradılma tarixi")
     customer_code = models.CharField(max_length=10, verbose_name="Müştəri Kodu", unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.full_name
+    
+    def add_feedback(self, note):
+        now = timezone.now().strftime('%Y-%m-%d %H:%M')
+        self.feedback_note.append({'note': note, 'date': now})
+        self.save()
 
     class Meta:
         verbose_name = "Müştəri"
         verbose_name_plural = "Müştərilər"
         ordering = ['-created_at']
 
-    def delete_if_expired(self):
-        if self.feedback_date and self.feedback_date < timezone.now().date():
-            self.delete()
+    def should_be_removed(self):
+        """24 saat keçibsə, task.html-dən çıxarılmasını yoxlayır."""
+        if self.feedback_checked_time:
+            return timezone.now() > self.feedback_checked_time + timedelta(hours=24)
+        return False
 
     def save(self, *args, **kwargs):
         if not self.customer_code:
@@ -93,13 +100,13 @@ class Customer(models.Model):
                 new_code = "#000001"
             self.customer_code = new_code
 
-        # Yeni qeyd əlavə edilərkən qeyd tarixi yenilənir
         if self.feedback_note:
             self.note_date = timezone.now()
 
         super().save(*args, **kwargs)
 
-
+    
+        
 
 class PriceOffer(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name="Müştəri", related_name="price_offers")  # Müştəri ilə əlaqə

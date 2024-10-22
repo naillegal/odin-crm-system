@@ -47,7 +47,6 @@
             <div>
                 <label for="customer">Qiymət təklifinin aid olduğu müştəri</label>
                 <br />
-                <!-- Müştəri seçimini deaktiv edirik -->
                 <select name="customer" id="customer" disabled>
                     <option value="" disabled>Müştərini seçin</option>
                     {% for customer in customers %}
@@ -56,25 +55,25 @@
                     </option>
                     {% endfor %}
                 </select>
-                <!-- Gizli input ilə müştərinin ID-sini serverə göndəririk -->
                 <input type="hidden" name="customer" value="{{ price_offer.customer.id }}">
             </div>
-        
+
             <div id="clone-wrapper">
               {% for price_offer_product in price_offer_products %}
               <div class="clone">
                   <div>
                       <label for="product">Məhsul</label>
-                      <select id="product" name="product[]" required>
+                      <select id="product" name="product[]" class="product-select" required>
                           <option value="" disabled>Məhsulu seçin</option>
                           {% for product in products %}
-                          <option value="{{ product.id }}" {% if price_offer_product.products.id == product.id %}selected{% endif %}>
+                          <option value="{{ product.id }}" data-description="{{ product.description }}" 
+                              {% if price_offer_product.products.id == product.id %}selected{% endif %}>
                               {{ product.title }}
                           </option>
                           {% endfor %}
                       </select>
                   </div>
-          
+
                   <div class="d-flex onelineinputs">
                       <div class="w-45">
                           <label for="price">Məhsulun qiyməti</label>
@@ -89,11 +88,11 @@
                           <input type="text" name="size[]" value="{{ price_offer_product.size }}" />
                       </div>
                   </div>
-          
+
                   <div class="d-flex onelineinputs">
                       <div class="w-45">
                           <label for="description">Məhsulun açıqlaması</label>
-                          <textarea name="description[]" rows="1">{{ price_offer_product.description }}</textarea>
+                          <textarea name="description[]" rows="1" class="auto-expand description">{{ price_offer_product.description }}</textarea>
                       </div>
                       <div class="w-30">
                           <label for="design_3d_url">3D görüntüsü</label>
@@ -105,15 +104,15 @@
                   </div>
               </div>
               {% endfor %}
-          </div>
-              
-        
+            </div>
+
             <div class="d-flex justify-content-center">
                 <button type="submit">Düzəliş et</button>
             </div>
           </form>
         </section>
       </div>
+
       <footer>
         <div class="tabs-box">
           <div class="change-tabs d-flex justify-content-between">
@@ -142,3 +141,6 @@
     <script src="{% static 'scripts/main.js' %}"></script>
   </body>
 </html>
+
+
+

@@ -29,41 +29,39 @@
       </section>
       <section id="fullfeedback">
         <div class="customer-info-box">
-          <div class="box">
-            <div class="d-flex justify-content-between">
-              <div class="d-flex">
-                <div class="personico" style="background-color: 
-                {% if customer.sales_contracts.exists %}#941c1b
-                {% elif customer.price_offers.exists %}#197e16
-                {% else %}#1473c7
-                {% endif %};">
-                <i class="fa-regular fa-user"></i>
-            </div>
-                <div>
-                  <span>{{ customer.full_name }}</span>
-                  <p>Müştəri {{ customer.customer_code }}</p>
+            <div class="box">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                        <div class="personico" style="background-color: 
+                        {% if customer.sales_contracts.exists %}#941c1b
+                        {% elif customer.price_offers.exists %}#197e16
+                        {% else %}#1473c7
+                        {% endif %};">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div>
+                        <span>{{ customer.full_name }}</span>
+                        <p>Müştəri {{ customer.customer_code }}</p>
+                    </div>
                 </div>
-              </div>
-          </div>
+            </div>
         </div>
+        <!-- Yeni qeyd əlavə etmək üçün form -->
         <form action="{% url 'feedback' customer.id %}" method="post">
-          {% csrf_token %}
-          <div>
-              <label for="note">Qeydlər</label>
-              <div id="char-count">{{ customer.feedback_note|length }} / 150</div>
-              <br />
-              <textarea name="note" rows="6" id="note" placeholder="Qeyd yoxdur">{% if customer.feedback_note %}{{ customer.feedback_note }}{% endif %}</textarea>
-          </div>
-          <div>
-              <label for="date">Növbəti geri dönüş</label>
-              <br />
-              <input type="date" id="date" name="date" value="{{ customer.feedback_date|date:'Y-m-d' }}" />
-          </div>
-          <div class="d-flex justify-content-center">
-              <button type="submit">Təsdiq et</button>
-          </div>
-      </form>
-      </section>
+            {% csrf_token %}
+            <div>
+                <label for="note">Qeydlər</label>
+                <textarea name="note" rows="6" id="note" placeholder="Qeyd əlavə edin"></textarea>
+            </div>
+            <div>
+                <label for="date">Növbəti geri dönüş</label>
+                <input type="date" id="date" name="date" value="{{ customer.feedback_date|date:'Y-m-d' }}" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit">Təsdiq et</button>
+            </div>
+        </form>
+    </section>
 
       <footer>
         <div class="tabs-box">

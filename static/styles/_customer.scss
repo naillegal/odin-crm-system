@@ -1,7 +1,7 @@
 #customers {
   overflow: auto;
   background-color: #313540;
-  height: calc(100vh - 20px);
+  height: 70vh;
   overflow-y: auto;
   .search-box {
     position: relative;
@@ -105,12 +105,15 @@
           .upside-content {
             color: white;
           }
-          .feed-content {
-            margin-top: 5px;
-            border: 1px solid rgb(180, 180, 180);
-            color: white;
-            border-radius: 3px;
-            padding: 10px;
+          .notes{
+            padding: 10px 0px;
+            .feed-content {
+              margin-top: 5px;
+              border: 1px solid rgb(180, 180, 180);
+              color: white;
+              border-radius: 3px;
+              padding: 10px;
+            }
           }
         }
         .tab2 {

@@ -137,6 +137,7 @@
 #bg-gray #relations-box {
   background-color: #313540;
   overflow-y: auto;
+  height: 70vh;
 }
 #bg-gray #relations-box .relation {
   width: 90%;
@@ -281,7 +282,7 @@
 #customers {
   overflow: auto;
   background-color: #313540;
-  height: calc(100vh - 20px);
+  height: 70vh;
   overflow-y: auto;
 }
 #customers .search-box {
@@ -393,7 +394,10 @@
 #customers .customer-info-box .box .dropdown-feedback .tab1 .upside-content {
   color: white;
 }
-#customers .customer-info-box .box .dropdown-feedback .tab1 .feed-content {
+#customers .customer-info-box .box .dropdown-feedback .tab1 .notes {
+  padding: 10px 0px;
+}
+#customers .customer-info-box .box .dropdown-feedback .tab1 .notes .feed-content {
   margin-top: 5px;
   border: 1px solid rgb(180, 180, 180);
   color: white;

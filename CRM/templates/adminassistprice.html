@@ -54,11 +54,13 @@
                 <div class="clone">
                     <div>
                         <label for="product">Maraqlandığı məhsul</label>
-                        <select id="product" name="product[]">
-                            <option value="" disabled selected>Məhsulu seçin</option>
-                            {% for product in products %}
-                            <option value="{{ product.id }}">{{ product.title }}</option>
-                            {% endfor %}
+                        <select id="product" name="product[]" class="product-select">
+                          <option value="" disabled selected>Məhsulu seçin</option>
+                          {% for product in products %}
+                          <option value="{{ product.id }}" data-description="{{ product.description }}">
+                            {{ product.title }}
+                          </option>
+                          {% endfor %}
                         </select>
                     </div>
                     <div class="d-flex onelineinputs">
@@ -78,7 +80,7 @@
                     <div class="d-flex onelineinputs">
                         <div class="w-45">
                             <label for="description">Məhsulun açıqlaması</label>
-                            <textarea name="description[]" rows="1"></textarea>
+                            <textarea name="description[]" rows="1" class="auto-expand description"></textarea>
                         </div>
                         <div class="w-30">
                             <label for="design_3d_url">3D görüntüsü</label>

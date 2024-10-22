@@ -10,12 +10,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.db.models import Q
 from django.contrib.auth import login
+
 # İndex view, loginsiz giriş üçün açıqdır
 
 
 def index(request):
     return render(request, 'index.html')
-
 
 
 class CustomLoginView(LoginView):
@@ -47,15 +47,14 @@ class CustomLoginView(LoginView):
 def task(request):
     today = timezone.now().date()
 
-    # feedback_note-u olan və bugünkü/gələcək tarixdə feedback_date-i olan müştəriləri seçirik
+    # Müştəriləri yalnız bugünkü və ya keçmiş geri dönüş tarixi ilə seçirik
     customers_list = Customer.objects.filter(
-        feedback_note__isnull=False,  # feedback_note boş olmayanlar
-        feedback_note__gt='',  # Silinmiş qeydləri də istisna edir
-    ).filter(
-        Q(feedback_date__isnull=True) | Q(feedback_date__gte=today)  # Geri dönüş tarixi uyğun olanlar
-    )
+        feedback_date__lte=today  # Bugünkü və ya keçmiş tarixlər
+    ).exclude(
+        feedback_checked=True,  # Əvvəllər yoxlanmış müştəriləri çıxarırıq
+    ).order_by('feedback_date')
 
-    # Sayfalandırma - hər səhifədə 10 müştəri
+    # Hər səhifədə 10 müştəri göstərmək üçün səhifələmə
     paginator = Paginator(customers_list, 10)
     page_number = request.GET.get('page')
 
@@ -66,13 +65,17 @@ def task(request):
     except EmptyPage:
         page_obj = paginator.get_page(paginator.num_pages)  # Son səhifə
 
-    # POST istəklərinin idarəsi
+    # POST istəklərini idarə etmək
     if request.method == 'POST':
         checked_customers = request.POST.getlist('checked_customers')
-        Customer.objects.filter(id__in=checked_customers).update(feedback_checked=True)
+        Customer.objects.filter(id__in=checked_customers).update(
+            feedback_checked=True,
+            feedback_checked_time=timezone.now()  # Yoxlanma vaxtını yeniləyirik
+        )
         return redirect('task')
 
     return render(request, 'task.html', {'page_obj': page_obj, 'today': today})
+
 
 @login_required
 def addcustomer(request):
@@ -246,36 +249,28 @@ def customer(request):
 
 @login_required
 def adminassistprice(request, customer_id):
-    # Müştərini gətiririk
     customer = get_object_or_404(Customer, id=customer_id)
 
     if request.method == 'POST':
         try:
-            # Form məlumatlarını əldə edirik
             products = request.POST.getlist('product[]')
-            prices = request.POST.getlist('price[]')
+            descriptions = request.POST.getlist('description[]')
             quantities = request.POST.getlist('quantity[]')
             sizes = request.POST.getlist('size[]')
-            descriptions = request.POST.getlist('description[]')
-            design_urls = request.POST.getlist('design_3d_url[]')
 
             if not products:
                 raise ValidationError("Ən azı bir məhsul seçilməlidir!")
 
-            # Müştəri üçün qiymət təklifi yaradırıq
             price_offer = PriceOffer.objects.create(customer=customer)
 
-            # Qiymət təklifi məhsullarını yaradıb saxlamaq
             for i in range(len(products)):
                 product = Product.objects.get(id=products[i])
                 PriceOfferProduct.objects.create(
                     price_offer=price_offer,
                     products=product,
-                    price=prices[i] if prices[i] else None,
+                    description=descriptions[i],
                     quantity=quantities[i] if quantities[i] else None,
                     size=sizes[i] if sizes[i] else None,
-                    description=descriptions[i] if descriptions[i] else None,
-                    design_3d_url=design_urls[i] if design_urls[i] else None,
                 )
 
             return redirect('customerinfo', id=customer.id)
@@ -283,12 +278,8 @@ def adminassistprice(request, customer_id):
         except ValidationError as e:
             messages.error(request, f"Formda səhv var: {e}")
 
-    # Müştərinin məlumatları ilə formu göstəririk
     products = Product.objects.all()
-    return render(request, 'adminassistprice.html', {
-        'customer': customer,
-        'products': products
-    })
+    return render(request, 'adminassistprice.html', {'customer': customer, 'products': products})
 
 
 @login_required
@@ -340,7 +331,6 @@ def adminsalescontract(request, customer_id):
     })
 
 
-@login_required
 def assistpricedetail(request, offer_id):
     price_offer = get_object_or_404(PriceOffer, id=offer_id)
 
@@ -355,7 +345,6 @@ def assistpricedetail(request, offer_id):
     })
 
 
-@login_required
 def salescontractdetail(request, id):
     try:
         sales_contract = SalesContract.objects.get(id=id)
@@ -549,17 +538,25 @@ def feedback(request, customer_id):
 
     if request.method == 'POST':
         feedback_note = request.POST.get('note')
+
+        if feedback_note:
+            try:
+                if customer.feedback_note is None:
+                    customer.feedback_note = []
+
+                # Yeni qeydi əlavə edirik
+                now = timezone.now().strftime('%Y-%m-%d %H:%M')
+                customer.feedback_note.append({'note': feedback_note, 'date': now})
+                customer.save()
+            except Exception as e:
+                messages.error(request, f"Xəta: {str(e)}")
+
+        # Geri dönüş tarixini yeniləyirik
         feedback_date = request.POST.get('date')
-
-        try:
-            # Qeyd və geri dönüş tarixi yenilənir
-            customer.feedback_note = feedback_note
+        if feedback_date:
             customer.feedback_date = feedback_date
-            customer.save()  # Burada `note_date` avtomatik yenilənir
+            customer.save()
 
-            return redirect('customerinfo', id=customer.id)
-
-        except Exception as e:
-            messages.error(request, f"Xəta baş verdi: {e}")
+        return redirect('customerinfo', id=customer.id)
 
     return render(request, 'feedback.html', {'customer': customer})

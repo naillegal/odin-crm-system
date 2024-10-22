@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_time %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -96,21 +97,23 @@
 
             <section id="dropdown-feedback-{{ customer.customer.id }}" class="dropdown-feedback" style="display: none;">
               <div class="tab1 w-80">
-                <div class="d-flex justify-content-between upside-content">
-                  <div>Qeyd</div>
-                  <div>{{ customer.customer.note_date|date:"d-F-Y / H:i" }}</div>
-                </div>
-                <div>
-                  <div class="feed-content">
-                    {% if customer.customer.feedback_note %}
-                      {{ customer.customer.feedback_note }}
-                    {% else %}
-                      Qeyd yoxdur
-                    {% endif %}
+                {% if customer.customer.feedback_note %}
+                  {% for note in customer.customer.feedback_note %}
+                  <div class="notes">
+                    <div class="d-flex justify-content-between upside-content">
+                      <div>Qeyd</div>
+                      <div>{{ note.date|to_date_only }}</div>
+                    </div>
+                    <div>
+                      <div class="feed-content">{{ note.note }}</div>
+                    </div>
                   </div>
-                </div>
+                  {% endfor %}
+                {% else %}
+                  <p style="color:white;">Qeyd yoxdur</p>
+                {% endif %}
               </div>
-
+            
               <div class="tab2 w-80">
                 <form action="">
                   <div>
@@ -144,7 +147,7 @@
                   <div>
                     <label>Qeydiyyat tarixi</label>
                     <br />
-                    <input type="text" value="{{ customer.customer.created_at|date:"d-F-Y / H:i" }}" disabled />
+                    <input type="text" value="{{ customer.customer.created_at|date:"d-F-Y" }}" disabled />
                   </div>
                   <div>
                     <label>Növbəti geri dönüş tarixi</label>
@@ -156,20 +159,21 @@
                     <br />
                     <input type="text" value="{{ customer.customer.inquiry_method }}" disabled />
                   </div>
-                  <!-- Qiymət Təklifi və Satış Sözləşməsi düymələri -->
-                  
                 </form>
+            
                 {% if customer.price_offers.exists %}
-                  <a href="{% url 'assistpricedetail' customer.price_offers.first.id %}">
-                    <button>QİYMƏT TƏKLİFİ</button>
-                  </a>
-                  {% endif %}
-                  {% if customer.sales_contracts.exists %}
-                  <a href="{% url 'salescontractdetail' customer.sales_contracts.first.id %}">
-                    <button style="background-color: #b94244; border: 1px solid #b94244;">SATIŞ SÖZLƏŞMƏSİ</button>
-                  </a>
-                  {% endif %}
+                <a href="{% url 'assistpricedetail' customer.price_offers.first.id %}">
+                  <button>QİYMƏT TƏKLİFİ</button>
+                </a>
+                {% endif %}
+            
+                {% if customer.sales_contracts.exists %}
+                <a href="{% url 'salescontractdetail' customer.sales_contracts.first.id %}">
+                  <button style="background-color: #b94244; border: 1px solid #b94244;">SATIŞ SÖZLƏŞMƏSİ</button>
+                </a>
+                {% endif %}
               </div>
+            
               <section id="change-feedtoinfo">
                 <div class="feedtoinfo-box d-flex justify-content-between">
                   <div class="clickable-tab feed active">GERİ DÖNÜŞLƏR</div>
@@ -177,6 +181,7 @@
                 </div>
               </section>
             </section>
+            
           </div>
           {% endfor %}
         </div>
