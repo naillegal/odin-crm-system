@@ -136,8 +136,8 @@
 }
 #bg-gray #relations-box {
   background-color: #313540;
-  overflow-y: auto;
-  height: 70vh;
+  height: calc(70vh - 20px);
+  overflow: auto;
 }
 #bg-gray #relations-box .relation {
   width: 90%;
@@ -280,10 +280,9 @@
 }
 
 #customers {
-  overflow: auto;
   background-color: #313540;
-  height: 70vh;
-  overflow-y: auto;
+  height: calc(70vh - 20px);
+  overflow: auto;
 }
 #customers .search-box {
   position: relative;

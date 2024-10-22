@@ -133,11 +133,16 @@
                   </div>
                   <div>
                     <label>Maraqlandığı məhsullar</label>
-                    <select id="product" name="product" multiple disabled>
-                      {% for product in customer.customer.products.all %}
-                      <option value="{{ product.id }}">{{ product.title }}</option>
-                      {% endfor %}
-                    </select>
+                    {% for product in customer.customer.products.all %}
+                    <input 
+                      type="text" 
+                      name="product_{{ product.id }}" 
+                      value="{{ product.title }}" 
+                      readonly 
+                      style="display: block; margin-bottom: 10px;" 
+                      disabled
+                    />
+                    {% endfor %}
                   </div>
                   <div>
                     <label>Ünvan</label>

@@ -1,8 +1,7 @@
 #customers {
-  overflow: auto;
   background-color: #313540;
-  height: 70vh;
-  overflow-y: auto;
+  height: calc(70vh - 20px);
+  overflow: auto;
   .search-box {
     position: relative;
     display: flex;
