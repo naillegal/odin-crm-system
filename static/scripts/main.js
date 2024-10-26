@@ -181,16 +181,20 @@ const addBtn = document.querySelector('.pwa button');
 addBtn.style.display = 'none'; // İlk öncə butonu gizlət
 
 window.addEventListener('beforeinstallprompt', (e) => {
+  console.log('beforeinstallprompt hadisəsi gəldi'); // Debug log
   e.preventDefault();
   deferredPrompt = e;
-  addBtn.style.display = 'block'; // Butonu yalnız hadisə gələndə göstər
+  addBtn.style.display = 'block'; // Hadisə gəldikdə butonu göstəririk
 });
 
-addBtn.addEventListener('click', (e) => {
-  if (!deferredPrompt) return; // Əgər hadisə yoxdursa, çıx
+addBtn.addEventListener('click', () => {
+  if (!deferredPrompt) {
+    console.log('deferredPrompt mövcud deyil'); // Debug log
+    return;
+  }
   deferredPrompt.prompt();
   deferredPrompt.userChoice.then((choiceResult) => {
-    console.log(`İstifadəçi: ${choiceResult.outcome}`);
+    console.log(`İstifadəçi: ${choiceResult.outcome}`); // Debug log
     deferredPrompt = null;
   });
 });

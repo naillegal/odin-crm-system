@@ -150,7 +150,7 @@
 }
 #bg-gray #relations-box {
   background-color: #313540;
-  height: calc(70vh - 20px);
+  height: 80vh;
   overflow: auto;
 }
 #bg-gray #relations-box .relation {
@@ -295,7 +295,7 @@
 
 #customers {
   background-color: #313540;
-  height: calc(70vh - 20px);
+  height: 80vh;
   overflow: auto;
 }
 #customers .search-box {
