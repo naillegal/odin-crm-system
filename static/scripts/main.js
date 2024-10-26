@@ -178,29 +178,39 @@ document.addEventListener('DOMContentLoaded', function () {
 // PWA 
 let deferredPrompt;
 const addBtn = document.querySelector('.pwa button');
-// Düyməni gizlədən sətiri silirik və ya şərhə alırıq.
-// addBtn.style.display = 'none';
+addBtn.style.display = 'block'; // Düyməni həmişə göstər
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  // İstəyinizə uyğun olaraq düymənin mətnini və ya stilini dəyişə bilərsiniz.
+
+  // Android üçün düyməni göstər
+  addBtn.style.display = 'block';
+
+  addBtn.addEventListener('click', (e) => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('İstifadəçi tətbiqi quraşdırmağı seçdi.');
+      } else {
+        console.log('İstifadəçi tətbiqi quraşdırmaqdan imtina etdi.');
+      }
+      deferredPrompt = null;
+    });
+  });
 });
 
 addBtn.addEventListener('click', (e) => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      console.log(`İstifadəçi seçimi: ${choiceResult.outcome}`);
-      deferredPrompt = null;
-    });
-  } else {
-    // Manual yükləmə təlimatları veririk
+  if (!deferredPrompt) {
+    // Əgər iOS cihazdırsa
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       alert('Bu proqramı iOS cihazınıza yükləmək üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.');
     } else {
+      // Android və ya digər cihazlar üçün
       alert('Bu proqramı yükləmək üçün brauzer menyusundan "Home Screen-ə əlavə et" seçin.');
     }
   }
 });
+
+
 
