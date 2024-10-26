@@ -178,23 +178,29 @@ document.addEventListener('DOMContentLoaded', function () {
 // PWA 
 let deferredPrompt;
 const addBtn = document.querySelector('.pwa button');
-addBtn.style.display = 'none'; // İlk öncə butonu gizlət
+// Düyməni gizlədən sətiri silirik və ya şərhə alırıq.
+// addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('beforeinstallprompt hadisəsi gəldi'); // Debug log
   e.preventDefault();
   deferredPrompt = e;
-  addBtn.style.display = 'block'; // Hadisə gəldikdə butonu göstəririk
+  // İstəyinizə uyğun olaraq düymənin mətnini və ya stilini dəyişə bilərsiniz.
 });
 
-addBtn.addEventListener('click', () => {
-  if (!deferredPrompt) {
-    console.log('deferredPrompt mövcud deyil'); // Debug log
-    return;
+addBtn.addEventListener('click', (e) => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      console.log(`İstifadəçi seçimi: ${choiceResult.outcome}`);
+      deferredPrompt = null;
+    });
+  } else {
+    // Manual yükləmə təlimatları veririk
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      alert('Bu proqramı iOS cihazınıza yükləmək üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.');
+    } else {
+      alert('Bu proqramı yükləmək üçün brauzer menyusundan "Home Screen-ə əlavə et" seçin.');
+    }
   }
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then((choiceResult) => {
-    console.log(`İstifadəçi: ${choiceResult.outcome}`); // Debug log
-    deferredPrompt = null;
-  });
 });
+
