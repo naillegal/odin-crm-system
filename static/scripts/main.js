@@ -178,17 +178,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // PWA 
 let deferredPrompt;
 const addBtn = document.querySelector('.pwa button');
-addBtn.style.display = 'block'; // Düyməni həmişə göstər
 
+// Düyməni hər zaman göstər
+addBtn.style.display = 'block'; 
+
+// beforeinstallprompt hadisəsini dinləyin
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 
-  // Android üçün düyməni göstər
-  addBtn.style.display = 'block';
+  // Düymə basıldıqda qurulma sorğusunu göstər
+  addBtn.addEventListener('click', () => {
+    deferredPrompt.prompt(); // Qurulma sorğusunu göstər
 
-  addBtn.addEventListener('click', (e) => {
-    deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
         console.log('İstifadəçi tətbiqi quraşdırmağı seçdi.');
@@ -200,17 +202,14 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
 });
 
-addBtn.addEventListener('click', (e) => {
-  if (!deferredPrompt) {
-    // Əgər iOS cihazdırsa
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      alert('Bu proqramı iOS cihazınıza yükləmək üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.');
-    } else {
-      // Android və ya digər cihazlar üçün
-      alert('Bu proqramı yükləmək üçün brauzer menyusundan "Home Screen-ə əlavə et" seçin.');
-    }
+// iOS üçün xüsusi xəbərdarlıq göstərmək
+addBtn.addEventListener('click', () => {
+  if (!deferredPrompt && /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    alert('iOS cihazınızda proqramı quraşdırmaq üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.');
   }
 });
+
+
 
 
 
