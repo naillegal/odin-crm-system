@@ -179,21 +179,23 @@ document.addEventListener('DOMContentLoaded', function () {
 let deferredPrompt;
 const addBtn = document.querySelector('.pwa button');
 
-// Düyməni hər zaman göstər
-addBtn.style.display = 'block'; 
+// Əgər artıq quraşdırılıbsa, düyməni gizlət
+if (localStorage.getItem('pwaInstalled') === 'true') {
+  addBtn.style.display = 'none';
+}
 
 // beforeinstallprompt hadisəsini dinləyin
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 
-  // Düymə basıldıqda qurulma sorğusunu göstər
   addBtn.addEventListener('click', () => {
-    deferredPrompt.prompt(); // Qurulma sorğusunu göstər
-
+    deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
         console.log('İstifadəçi tətbiqi quraşdırmağı seçdi.');
+        localStorage.setItem('pwaInstalled', 'true'); // Quraşdırmanı yadda saxla
+        addBtn.style.display = 'none'; // Düyməni gizlət
       } else {
         console.log('İstifadəçi tətbiqi quraşdırmaqdan imtina etdi.');
       }
@@ -205,7 +207,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // iOS üçün xüsusi xəbərdarlıq göstərmək
 addBtn.addEventListener('click', () => {
   if (!deferredPrompt && /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    alert('iOS cihazınızda proqramı quraşdırmaq üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.');
+    alert(
+      'iOS cihazınızda proqramı quraşdırmaq üçün Paylaş düyməsinə klikləyin və "Home Screen-ə əlavə et" seçin.'
+    );
   }
 });
 
