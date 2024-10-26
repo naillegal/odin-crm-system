@@ -174,3 +174,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
+
+// PWA 
+let deferredPrompt;
+const addBtn = document.querySelector('.pwa button');
+addBtn.style.display = 'none'; // İlk öncə butonu gizlət
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  addBtn.style.display = 'block'; // Butonu yalnız hadisə gələndə göstər
+});
+
+addBtn.addEventListener('click', (e) => {
+  if (!deferredPrompt) return; // Əgər hadisə yoxdursa, çıx
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then((choiceResult) => {
+    console.log(`İstifadəçi: ${choiceResult.outcome}`);
+    deferredPrompt = null;
+  });
+});

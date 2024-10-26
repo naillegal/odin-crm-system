@@ -85,6 +85,20 @@
   z-index: 99;
   padding: 2px 0px 20px 0px;
 }
+#bg-gray header .pwa {
+  margin-bottom: 8px;
+}
+#bg-gray header .pwa button {
+  background-color: #1473c7;
+  color: white;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 2px 8px;
+}
+#bg-gray header .pwa button i {
+  margin-left: 5px;
+}
 #bg-gray header .logout .w-90 {
   padding: 10px 0px;
   width: 95%;
