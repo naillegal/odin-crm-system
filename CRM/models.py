@@ -39,14 +39,33 @@ class CustomerProduct(models.Model):
         verbose_name = "Müştəri Məhsulu"
         verbose_name_plural = "Müştəri Məhsulları"
 
+class Design3D(models.Model):
+    title = models.CharField(max_length=255, verbose_name="3D Dizayn Başlıq")
+    image = models.ImageField(upload_to='designs/', verbose_name="3D Dizayn şəkil", blank=True, null=True)
+    url = models.URLField(max_length=500, verbose_name="3D Dizayn Link", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "3D Dizayn"
+        verbose_name_plural = "3D Dizaynlar"
+        
+
 class PriceOfferProduct(models.Model):
-    price_offer = models.ForeignKey('PriceOffer', on_delete=models.CASCADE, verbose_name="Qiymət təklifi")
+    price_offer = models.ForeignKey('PriceOffer', on_delete=models.CASCADE, verbose_name="Qiymət Təklifi")
     products = models.ForeignKey('Product', on_delete=models.CASCADE, verbose_name="Məhsul")
-    size = models.CharField(max_length=100, verbose_name="Məhsulun ölçüsü", blank=True, null=True)  # Ölçü sahəsi
-    price = models.CharField(max_length=30, verbose_name="Məhsulun qiyməti", blank=True, null=True)  # Məhsulun qiyməti
-    quantity = models.IntegerField(verbose_name="Sayı", blank=True, null=True)  # Məhsulun sayı
-    description = models.TextField(verbose_name="Məhsulun açıqlaması", blank=True, null=True)  # Məhsulun açıqlaması
-    design_3d_url = models.URLField(max_length=500, verbose_name="3D dizayn linki", blank=True, null=True)  # 3D dizayn linki (optional)
+    size = models.CharField(max_length=100, verbose_name="Məhsulun ölçüsü", blank=True, null=True)
+    price = models.CharField(max_length=30, verbose_name="Məhsulun qiyməti", blank=True, null=True)
+    quantity = models.IntegerField(verbose_name="Sayı", blank=True, null=True)
+    description = models.TextField(verbose_name="Məhsulun açıqlaması", blank=True, null=True)
+    design_3d = models.ForeignKey(
+        Design3D, 
+        on_delete=models.SET_NULL, 
+        verbose_name="3D Dizayn", 
+        blank=True, 
+        null=True
+    )
 
     def __str__(self):
         return f"{self.price_offer.customer.full_name} - {self.products.title}"
@@ -118,8 +137,10 @@ class PriceOffer(models.Model):
         total = 0
         products = PriceOfferProduct.objects.filter(price_offer=self)
         for product in products:
-            if product.price: 
-                total += int(product.price) 
+            try:
+                total += int(float(product.price))  
+            except (ValueError, TypeError):
+                continue
         return total
 
     def __str__(self):

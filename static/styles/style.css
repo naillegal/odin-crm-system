@@ -858,6 +858,61 @@
   width: 30%;
   margin-left: 10px;
 }
+#editform form .onelineinputs .w-30 .custom-select {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+#editform form .onelineinputs .w-30 .custom-select .selected-option {
+  margin-top: 7.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+#editform form .onelineinputs .w-30 .custom-select .selected-option img {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#editform form .onelineinputs .w-30 .custom-select .options {
+  padding: 0px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #3f4553;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+#editform form .onelineinputs .w-30 .custom-select .options .option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+#editform form .onelineinputs .w-30 .custom-select .options .option img {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#editform form .onelineinputs .w-30 .custom-select .options .option:hover {
+  background-color: #50575e;
+}
+#editform form .onelineinputs .w-30 .custom-select.open .options {
+  display: block;
+}
 #editform form button {
   width: 45%;
   margin-top: 10px;
@@ -1521,6 +1576,61 @@
 .fullscreen #addcustomerform form .onelineinputs .w-30 {
   width: 30%;
   margin-left: 10px;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .selected-option {
+  margin-top: 7.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .selected-option img {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .options {
+  padding: 0px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #3f4553;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .options .option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .options .option img {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select .options .option:hover {
+  background-color: #50575e;
+}
+.fullscreen #addcustomerform form .onelineinputs .w-30 .custom-select.open .options {
+  display: block;
 }
 .fullscreen #addcustomerform form .onelineinputs .w-20 {
   width: 20%;

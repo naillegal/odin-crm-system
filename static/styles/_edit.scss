@@ -73,6 +73,66 @@
       .w-30 {
         width: 30%;
         margin-left: 10px;
+        .custom-select {
+          position: relative;
+          width: 100%;
+          cursor: pointer;
+
+          .selected-option {
+            margin-top: 7.5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            color: white;
+
+            img {
+              margin-right: 5px;
+              width: 20px; // Şəkilin standart eni
+              height: 20px; // Şəkilin standart hündürlüyü
+              object-fit: cover;
+            }
+          }
+
+          .options {
+            padding: 0px;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #3f4553;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+
+            .option {
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              color: white;
+
+              img {
+                margin-right: 5px;
+                width: 20px; // Şəkilin standart eni
+                height: 20px; // Şəkilin standart hündürlüyü
+                object-fit: cover;
+              }
+
+              &:hover {
+                background-color: #50575e;
+              }
+            }
+          }
+
+          &.open .options {
+            display: block;
+          }
+        }
       }
     }
 

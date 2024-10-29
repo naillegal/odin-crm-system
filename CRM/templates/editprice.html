@@ -50,7 +50,8 @@
                 <select name="customer" id="customer" disabled>
                     <option value="" disabled>Müştərini seçin</option>
                     {% for customer in customers %}
-                    <option value="{{ customer.id }}" {% if price_offer.customer.id == customer.id %}selected{% endif %}>
+                    <option value="{{ customer.id }}" 
+                    {% if price_offer.customer.id == customer.id %}selected{% endif %}>
                       {{ customer.full_name }}
                     </option>
                     {% endfor %}
@@ -75,10 +76,10 @@
                   </div>
 
                   <div class="d-flex onelineinputs">
-                      <div class="w-45">
-                          <label for="price">Məhsulun qiyməti</label>
-                          <input type="text" name="price[]" value="{{ price_offer_product.price }}" required />
-                      </div>
+                    <div class="w-45">
+                      <label for="price">Məhsulun qiyməti</label>
+                      <input type="text" name="price[]" value="{{ price_offer_product.price|default_if_none:'' }}" required />
+                  </div>
                       <div class="w-30">
                           <label for="quantity">Say</label>
                           <input type="text" name="quantity[]" value="{{ price_offer_product.quantity }}" required />
@@ -95,9 +96,30 @@
                           <textarea name="description[]" rows="1" class="auto-expand description">{{ price_offer_product.description }}</textarea>
                       </div>
                       <div class="w-30">
-                          <label for="design_3d_url">3D görüntüsü</label>
-                          <input type="text" name="design_3d_url[]" value="{{ price_offer_product.design_3d_url }}" />
-                      </div>
+                        <label for="design_3d">3D Dizayn</label>
+                        <div class="custom-select">
+                          <div class="selected-option" data-value="{{ price_offer_product.design_3d.id|default_if_none:'' }}">
+                            {% if price_offer_product.design_3d %}
+                              <img src="{{ price_offer_product.design_3d.image.url }}" alt="{{ price_offer_product.design_3d.title }} Şəkil" />
+                              {{ price_offer_product.design_3d.title }}
+                            {% else %}
+                              Yoxdur
+                            {% endif %}
+                          </div>
+                          <ul class="options">
+                            <li data-value="" class="option {% if not price_offer_product.design_3d %}selected{% endif %}">Yoxdur</li>
+                            {% for design in designs %}
+                              <li data-value="{{ design.id }}" class="option {% if price_offer_product.design_3d.id == design.id %}selected{% endif %}">
+                                <img src="{{ design.image.url }}" alt="{{ design.title }} Şəkil" />
+                                {{ design.title }}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                          <input type="hidden" name="design_3d[]" value="{{ price_offer_product.design_3d.id|default_if_none:'' }}" />
+                        </div>
+                        
+                    </div>
+                    
                       <div class="icon-bg w-20">
                           <i class="fa-solid {% if forloop.first %}fa-plus{% else %}fa-trash{% endif %}"></i>
                       </div>

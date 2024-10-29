@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Customer, CustomerProduct, Product, Feature, PriceOffer, PriceOfferProduct, SalesContract
+from .models import Customer, CustomerProduct, Product, Feature, PriceOffer, PriceOfferProduct, SalesContract, Design3D
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
@@ -257,6 +257,8 @@ def adminassistprice(request, customer_id):
             descriptions = request.POST.getlist('description[]')
             quantities = request.POST.getlist('quantity[]')
             sizes = request.POST.getlist('size[]')
+            prices = request.POST.getlist('price[]')  # Qiymətləri alırıq
+            design_3d_ids = request.POST.getlist('design_3d[]')
 
             if not products:
                 raise ValidationError("Ən azı bir məhsul seçilməlidir!")
@@ -265,12 +267,19 @@ def adminassistprice(request, customer_id):
 
             for i in range(len(products)):
                 product = Product.objects.get(id=products[i])
+                design_3d = Design3D.objects.get(id=design_3d_ids[i]) if design_3d_ids[i] else None
+
+                # Qiyməti olduğu kimi saxlayırıq
+                price = prices[i].strip()
+
                 PriceOfferProduct.objects.create(
                     price_offer=price_offer,
                     products=product,
                     description=descriptions[i],
                     quantity=quantities[i] if quantities[i] else None,
                     size=sizes[i] if sizes[i] else None,
+                    price=price,  # Qiyməti dəyişmədən saxlayırıq
+                    design_3d=design_3d
                 )
 
             return redirect('customerinfo', id=customer.id)
@@ -279,7 +288,13 @@ def adminassistprice(request, customer_id):
             messages.error(request, f"Formda səhv var: {e}")
 
     products = Product.objects.all()
-    return render(request, 'adminassistprice.html', {'customer': customer, 'products': products})
+    designs = Design3D.objects.all()
+
+    return render(request, 'adminassistprice.html', {
+        'customer': customer,
+        'products': products,
+        'designs': designs,
+    })
 
 
 @login_required
@@ -343,6 +358,7 @@ def assistpricedetail(request, offer_id):
         'price_offer': price_offer,
         'offer_products': offer_products,
     })
+
 
 
 def salescontractdetail(request, id):
@@ -469,22 +485,26 @@ def edit_assist_price(request, id):
             quantities = request.POST.getlist('quantity[]')
             sizes = request.POST.getlist('size[]')
             descriptions = request.POST.getlist('description[]')
-            design_urls = request.POST.getlist('design_3d_url[]')
+            design_ids = request.POST.getlist('design_3d[]')
 
             # Hər məhsulu yenidən əlavə edirik
             for index in range(len(product_ids)):
                 product = Product.objects.get(id=product_ids[index])
+                design_3d = Design3D.objects.get(id=design_ids[index]) if design_ids[index] else None
+
+                # Qiyməti heç bir çevirmə etmədən saxlayırıq
+                price = prices[index].strip() if prices[index] else ""
+
                 PriceOfferProduct.objects.create(
                     price_offer=price_offer,
                     products=product,
-                    price=prices[index] if prices[index] else None,
-                    quantity=quantities[index] if quantities[index] else None,
+                    price=price,  # Qiymət heç bir dəyişiklik olmadan saxlanılır
+                    quantity=int(quantities[index]) if quantities[index] else None,
                     size=sizes[index] if sizes[index] else None,
                     description=descriptions[index] if descriptions[index] else None,
-                    design_3d_url=design_urls[index] if design_urls[index] else None,
+                    design_3d=design_3d
                 )
 
-            # Müvafiq yönləndirməni düzəldirik
             return redirect('assistprice')
 
         except Exception as e:
@@ -497,7 +517,9 @@ def edit_assist_price(request, id):
         'products': Product.objects.all(),
         'customers': Customer.objects.all(),
         'price_offer_products': price_offer_products,
+        'designs': Design3D.objects.all()
     })
+
 
 
 

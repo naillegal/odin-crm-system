@@ -4,15 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="{% static "styles/style.css" %}" /> <link
-    rel="stylesheet" href="{% static "vendors/bootstrap.min.css" %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" /> <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
     <title>CRM Odin Project Engineering</title>
     <style>
       html {
@@ -23,19 +16,19 @@
     <script>
       function downloadPDF() {
         // PDF faylını yaratmadan öncə düyməni gizləyirik
-        document.getElementById("pdf-button").style.display = "none";
-
+        document.getElementById('pdf-button').style.display = 'none'
+      
         // HTML elementini seçirik
-        const element = document.body;
-
+        const element = document.body
+      
         // PDF yaratmaq üçün html2pdf funksiyasını çağırırıq
         html2pdf()
           .from(element)
           .save()
           .then(() => {
             // PDF yaratdıqdan sonra düyməni geri qaytarırıq
-            document.getElementById("pdf-button").style.display = "block";
-          });
+            document.getElementById('pdf-button').style.display = 'block'
+          })
       }
     </script>
   </head>
@@ -43,9 +36,11 @@
     <section id="logoandtitle">
       <div class="d-flex align-items-center justify-content-center">
         <div style="width: 60%">
-          <img src="{% static "assets/logo-yan.png" %}" alt="" />
+          <img src="{% static 'assets/logo-yan.png' %}" alt="" />
         </div>
-        <div><p class="priceassist">QİYMƏT TƏKLİFİ</p></div>
+        <div>
+          <p class="priceassist">QİYMƏT TƏKLİFİ</p>
+        </div>
       </div>
     </section>
 
@@ -63,7 +58,7 @@
         </div>
         <div>
           <h6>Tarix :</h6>
-          <h6>{{ price_offer.created_at|date:"d/m/Y" }}</h6>
+          <h6>{{ price_offer.created_at|date:'d/m/Y' }}</h6>
         </div>
         <div>
           <h6>Seriya № :</h6>
@@ -75,41 +70,53 @@
     <section id="assistprice-product-title">
       <div class="title-column">
         <div class="d-flex align-items-center justify-content-between">
-          <div class="w-15"><h6>MƏHSUL</h6></div>
-          <div class="w-40"><h6>AÇIQLAMA</h6></div>
-          <div class="w-15"><h6>QİYMƏT</h6></div>
-          <div class="w-15"><h6>SAY</h6></div>
-          <div class="w-15"><h6>ÖLÇÜ</h6></div>
+          <div class="w-15">
+            <h6>MƏHSUL</h6>
+          </div>
+          <div class="w-40">
+            <h6>AÇIQLAMA</h6>
+          </div>
+          <div class="w-15">
+            <h6>QİYMƏT</h6>
+          </div>
+          <div class="w-15">
+            <h6>SAY</h6>
+          </div>
+          <div class="w-15">
+            <h6>ÖLÇÜ</h6>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="assistprice-product-info">
       {% for product in offer_products %}
-      <div class="title-column">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="w-15">
-            <h6>{{ product.products.title }}</h6>
-            {% if product.design_3d_url %}
-            <a href="{{ product.design_3d_url }}" class="bax" target="_blank">
-              <h6 class="bax">3D BAX</h6>
-            </a>
-            {% else %}
-            <a>
-              <h6 class="bax">3D görüntüsü yoxdur</h6>
-            </a>
-            {% endif %}
+        <div class="title-column">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="w-15">
+              <h6>{{ product.products.title }}</h6>
+              {% if product.design_3d %}
+                <a href="{{ product.design_3d.url }}" class="bax" target="_blank"><h6 class="bax">3D BAX</h6></a>
+              {% else %}
+              <a href="#">
+                <h6 class="bax">3D yoxdur</h6>
+              </a>
+              {% endif %}
+            </div>
+            <div class="w-40">
+              <h6 style="width: 95%; text-align: left; padding-left: 25px;">{{ product.description }}</h6>
+            </div>
+            <div class="w-15">
+              <h6>{{ product.price }}</h6>
+            </div>
+            <div class="w-15">
+              <h6>{{ product.quantity }}</h6>
+            </div>
+            <div class="w-15">
+              <h6>{{ product.size }} m²</h6>
+            </div>
           </div>
-          <div class="w-40">
-            <h6 style="width: 95%; text-align: left; padding-left: 25px">
-              {{ product.description }}
-            </h6>
-          </div>
-          <div class="w-15"><h6>{{ product.price }}</h6></div>
-          <div class="w-15"><h6>{{ product.quantity }}</h6></div>
-          <div class="w-15"><h6>{{ product.size }}m²</h6></div>
         </div>
-      </div>
       {% endfor %}
     </section>
 
@@ -117,9 +124,7 @@
       <section id="sub-total-price">
         <div style="float: right; margin-top: 12px" class="d-flex">
           <h6>ÜMUMİ QİYMƏT</h6>
-          <h6 style="font-size: 24px; margin-top: -6px">
-            {{ price_offer.total_price }} ₼
-          </h6>
+          <h6 style="font-size: 24px; margin-top: -6px">{{ price_offer.total_price }} ₼</h6>
         </div>
       </section>
     </div>
